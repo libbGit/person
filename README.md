@@ -1,6 +1,13 @@
 ## 欢迎来到github 页面
 
 在这个页面中包含了许多的前端知识和资料。
+
+* CSS 知识
+* HTML知识
+* Javascript知识
+* vue知识
+
+
  
 You can use the [editor on GitHub](https://github.com/libbGit/person/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
