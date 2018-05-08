@@ -12,8 +12,9 @@ self.addEventListener('install', event => {
             return cache.addAll([
                 './',
                 'index.html',
-                'static/js/app.772233b49dfaeed09ed3.js',
+                'static/js/manifest.2ae2e69a05c33dfc65f8.js',
                 'static/js/vendor.4fea789d7b45a52ad86b.js',
+                'static/js/app.772233b49dfaeed09ed3.js',
                 'static/css/app.66145e74e07a8d2d0e64a12031111655.css',
                 'static/img/icons/favicon.ico'
             ]);
