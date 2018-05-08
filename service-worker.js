@@ -12,10 +12,10 @@ self.addEventListener('install', event => {
             return cache.addAll([
                 './',
                 'index.html',
-                'js/bundle.js',
-                'css/styles.css',
-                'favicon.ico',
-                'images/iOS-144.png'
+                'js/app.ade37ad7f226553a16fd.js',
+                'js/vendor.b476c6bac7970f1ab199.js',
+                'css/app.64bf8b993d5ad7cae848f160967ea9cf.css',
+                'img/icons/favicon.ico'
             ]);
         }).then(() => {
             // activate the new service worker immediately, without waiting for next load.
