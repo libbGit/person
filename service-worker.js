@@ -12,9 +12,9 @@ self.addEventListener('install', event => {
             return cache.addAll([
                 './',
                 'index.html',
-                'static/js/app.ade37ad7f226553a16fd.js',
+                'static/js/app.880bad55b9a1312b7278.js',
                 'static/js/vendor.b476c6bac7970f1ab199.js',
-                'static/css/app.64bf8b993d5ad7cae848f160967ea9cf.css',
+                'static/css/app.90cc2c877c4be615f9feb0b3a97ba4b0.css',
                 'static/img/icons/favicon.ico'
             ]);
         }).then(() => {
