@@ -12,10 +12,10 @@ self.addEventListener('install', event => {
             return cache.addAll([
                 './',
                 'index.html',
-                'js/app.ade37ad7f226553a16fd.js',
-                'js/vendor.b476c6bac7970f1ab199.js',
-                'css/app.64bf8b993d5ad7cae848f160967ea9cf.css',
-                'img/icons/favicon.ico'
+                'static/js/app.ade37ad7f226553a16fd.js',
+                'static/js/vendor.b476c6bac7970f1ab199.js',
+                'static/css/app.64bf8b993d5ad7cae848f160967ea9cf.css',
+                'static/img/icons/favicon.ico'
             ]);
         }).then(() => {
             // activate the new service worker immediately, without waiting for next load.
