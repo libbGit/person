@@ -8,7 +8,7 @@ const staticCacheName = staticCachePrefix + version;
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(staticCacheName).then(cache => {
-            // cache all the static assets required for offline use.
+            // 缓存所有的静态资源，以便用户离线时可以访问到。即UI外壳
             return cache.addAll([
                 './',
                 'index.html',
@@ -44,23 +44,21 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-
     let request = event.request;
     let url = new URL(request.url);
 
-    // only deal with requests on the same domain.
+    // 只有具有相同的domain时才去处理 request请求
     if (url.origin !== location.origin) {
         return;
     }
 
     // for non-GET requests, go to the network.
     if (request.method !== 'GET') {
-        event.respondWith(fetch(request));
+        event.respondWith(fetch(request));  //fetch为window的内置方法
         return;
     }
 
-    // for everything else look to the cahce first,
-    // then fall back to the network.
+    // 对于一切的请求 先去缓存查找，如果没有，再去访问网络
     event.respondWith(
         caches.match(request).then(response => {
             return response || fetch(request);
