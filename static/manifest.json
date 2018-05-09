@@ -1,6 +1,7 @@
 {
-  "name": "My Person Website",
+  "name": "Person",
   "short_name": "Person",
+  "description": "This is My Person website",
   "icons": [
     {
       "src": "https://libbgit.github.io/person/static/img/icons/windows-chrome-192x192.png",
@@ -10,7 +11,7 @@
   ],
   "start_url": "https://libbgit.github.io/person/index.html",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "red",
   "theme_color": "#4DBA87",
   "screenshots": [{
     "src": "https://libbgit.github.io/person/static/img/icons/windows-chrome-192x192.png",
