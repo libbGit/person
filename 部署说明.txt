@@ -1,4 +1,4 @@
 1、提交之前一定要将 index.html中的 绝对路径修改为 相对路径, 可全文搜索  static 关键字, favicon.ico关键字
 2、将service-worker.js 中的cache缓存的static路径下的文件名修改正确
-
-**部署完稍等5分钟左右，刷新才能生效**
+3、将service-worker.js中的version修改
+**部署完，清空浏览器缓存，刷新页面即可**
