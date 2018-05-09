@@ -1,5 +1,5 @@
 {
-  "name": "Person",
+  "name": "My Person Website",
   "short_name": "Person",
   "icons": [
     {
@@ -11,5 +11,19 @@
   "start_url": "https://libbgit.github.io/person/index.html",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "theme_color": "#4DBA87",
+  "screenshots": [{
+    "src": "https://libbgit.github.io/person/static/img/icons/windows-chrome-192x192.png",
+    "sizes": "640x480",
+    "type": "image/jpeg"
+  },{
+    "src": "https://libbgit.github.io/person/static/img/icons/windows-chrome-192x192.png",
+    "sizes": "1280x920",
+    "type": "image/jpeg"
+  },
+  {
+    "src": "https://libbgit.github.io/person/static/img/icons/windows-chrome-192x192.png",
+    "sizes": "1920x1080",
+    "type": "image/jpeg"
+  }]
 }
