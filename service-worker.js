@@ -1,7 +1,7 @@
 
 'use strict';
 
-const version = 'v1.04';  //在部署文件前，请修改版本
+const version = 'v1.05';  //在部署文件前，请修改版本
 const staticCachePrefix = 'wave-pd1-static-';
 const staticCacheName = staticCachePrefix + version;  //通过version版本的更新来控制，service-woker文件总是使用最新的
 
@@ -19,8 +19,8 @@ self.addEventListener('install', event => {
                 'index.html',
                 'static/js/manifest.2ae2e69a05c33dfc65f8.js',
                 'static/js/vendor.4fea789d7b45a52ad86b.js',
-                'static/js/app.eeff145710036d04b74e.js',
-                'static/css/app.e554d8c33e7fcf93240f206dd13806a9.css',
+                'static/js/app.a87a2a2b768e08be4131.js',
+                'static/css/app.503a92516169206d6d2605c83a4c985b.css',
                 'static/img/icons/favicon.ico'
             ]);
         }).then(() => {
