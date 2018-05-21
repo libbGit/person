@@ -1,0 +1,217 @@
+.page-header {
+  color: #fff;
+  text-align: center;
+  background-color: #159957;
+  background-image: linear-gradient(120deg, #155799, #159957);
+}
+@media screen and (min-width: 64em) {
+  .page-header {
+    padding: 5rem 6rem;
+  }
+}
+@media screen and (min-width: 42em) and (max-width: 64em) {
+  .page-header {
+    padding: 3rem 4rem;
+  }
+}
+@media screen and (max-width: 42em) {
+  .page-header {
+    padding: 2rem 1rem;
+  }
+}
+
+.project-name {
+  margin-top: 0;
+  margin-bottom: 0.1rem;
+}
+@media screen and (min-width: 64em) {
+  .project-name {
+    font-size: 3.25rem;
+  }
+}
+@media screen and (min-width: 42em) and (max-width: 64em) {
+  .project-name {
+    font-size: 2.25rem;
+  }
+}
+@media screen and (max-width: 42em) {
+  .project-name {
+    font-size: 1.75rem;
+  }
+}
+
+.project-tagline {
+  margin-bottom: 2rem;
+  font-weight: normal;
+  opacity: 0.7;
+}
+@media screen and (min-width: 64em) {
+  .project-tagline {
+    font-size: 1.25rem;
+  }
+}
+@media screen and (min-width: 42em) and (max-width: 64em) {
+  .project-tagline {
+    font-size: 1.15rem;
+  }
+}
+@media screen and (max-width: 42em) {
+  .project-tagline {
+    font-size: 1rem;
+  }
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.3rem;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+.btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.btn + .btn {
+  margin-left: 1rem;
+}
+@media screen and (min-width: 64em) {
+  .btn {
+    padding: 0.75rem 1rem;
+  }
+}
+@media screen and (min-width: 42em) and (max-width: 64em) {
+  .btn {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 42em) {
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .btn + .btn {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+}
+
+/*幻灯片*/
+@media screen and (min-width:1366px) and (max-width:1920px) {
+  .header-carousel .el-carousel__container {
+    height: 240px;
+  }
+}
+@media screen and (min-width:1920px) {
+  .header-carousel .el-carousel__container {
+    height: 300px;
+  }
+}
+
+/*左侧菜单*/
+@media screen and (min-width:1024px) and (max-width:1366px) {
+  .left-aside {
+    width:300px!important;
+  }
+
+  .left-aside .el-menu-vertical-demo{
+    margin-right: 10px!important;
+    padding: 20px 0px 0 30px!important;
+  }
+}
+@media screen and (min-width:1366px) and (max-width:1920px) {
+  .left-aside {
+    width:340px!important;
+  }
+
+  .left-aside .el-menu-vertical-demo{
+    margin-right: 10px!important;
+    padding: 20px 0px 0 30px!important;
+  }
+}
+@media screen and (min-width:1920px) {
+  .left-aside {
+    width:380px!important;
+  }
+
+  .left-aside .el-menu-vertical-demo{
+    margin-right: 20px!important;
+    padding: 30px 0px 0 50px!important;
+  }
+}
+.left-aside .el-menu-vertical-demo .el-menu-item{
+  font-size:12px;
+}
+
+
+/*书法卡片*/
+.shufa-card {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 1px solid #ebeef5;
+  overflow: hidden;
+  float: left;
+}
+@media screen and (min-width:1024px) and (max-width:1366px) {
+  .shufa-card {
+    width: 300px;
+    height: 250px;
+    margin: 12px 20px;
+  }
+}
+@media screen and (min-width:1366px) and (max-width:1920px) {
+  .shufa-card {
+    width: 430px;
+    height: 320px;
+    margin: 12px 20px;
+  }
+}
+@media screen and (min-width:1920px) {
+  .shufa-card {
+    width: 450px;
+    height: 350px;
+    margin: 12px 20px;
+  }
+}
+.shufa-card img {
+  width: 100%;
+  height: 75%;
+}
+.shufa-card .card-title {
+  display: inline-block;
+  font-size: 13px;
+  color: #868686;
+  width: 80%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* 图片预览 */
+.el-message-preview-box {
+    width: auto;
+    background: rgba(0, 0, 0, 0);
+    border:none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    /* transform: scale(1); */
+    animation:preview-animation .5s ease-in-out;
+  }
+  .el-message-preview-box .el-message-box__header {
+    display: none;
+  }
+  @keyframes preview-animation
+  {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+  }
