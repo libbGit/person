@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "a15186b79e5a9cad3fbdbaa8892f852c",
-    "url": "/person/static/media/iconfont.a15186b7.woff"
+    "revision": "67fb14f1cc76ce3544bef830ff3720cc",
+    "url": "/person/static/media/iconfont.67fb14f1.eot"
   },
   {
     "revision": "d210804717bcc3cdfa55",
@@ -20,16 +20,16 @@ self.__precacheManifest = [
     "url": "/person/static/js/runtime~main.9ce23bd1.js"
   },
   {
-    "revision": "67fb14f1cc76ce3544bef830ff3720cc",
-    "url": "/person/static/media/iconfont.67fb14f1.eot"
+    "revision": "cb5cd9326d675c575c89ad28ad3cb5d0",
+    "url": "/person/static/media/iconfont.cb5cd932.ttf"
   },
   {
     "revision": "d210804717bcc3cdfa55",
     "url": "/person/static/js/main.d2108047.chunk.js"
   },
   {
-    "revision": "cb5cd9326d675c575c89ad28ad3cb5d0",
-    "url": "/person/static/media/iconfont.cb5cd932.ttf"
+    "revision": "a15186b79e5a9cad3fbdbaa8892f852c",
+    "url": "/person/static/media/iconfont.a15186b7.woff"
   },
   {
     "revision": "b7debe6e0500145d556481d80fa88556",
