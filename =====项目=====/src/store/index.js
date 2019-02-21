@@ -1,33 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import createPersistedState from 'vuex-persistedstate'
 
-Vue.use(Vuex)
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
+import reducers from './reducers/index'
+import thunk from 'redux-thunk'
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; //配置redux devtools
 
-//pd缓存
-import user from './user'
+let store = createStore(
+  combineReducers(reducers),
+  composeEnhancers(applyMiddleware(thunk))   //中间件
+)
 
-const state = {
-
-}
-const getters = {
-
-}
-const mutations = {
-
-}
-const actions = {
-
-}
-const modules = {
-  user,
-}
-export default new Vuex.Store({
-  state,
-  getters,
-  mutations,
-  actions,
-  modules,
-  plugins: [createPersistedState()],
-  strict: process.env.NODE_ENV !== 'production'   //在生产环境启用导致性能损失
-})
+export default store
