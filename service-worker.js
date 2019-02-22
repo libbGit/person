@@ -10,11 +10,11 @@
  * and re-run your build process.
  * See https://goo.gl/2aRDsh
  */
-console.log("self====",self);
+
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/person/precache-manifest.71cd493771c1fd5e72be9609cc52e7cd.js"
+  "/person/precache-manifest.ad1ea971ea7b0811fb7dc5e9ab769648.js"
 );
 
 workbox.clientsClaim();
