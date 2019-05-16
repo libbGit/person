@@ -1,0 +1,26 @@
+#root {
+  min-width: 1200px;
+}
+
+.app-header {
+  height: 65px;
+}
+
+.app-main {
+  min-height: calc(100vh - 65px - 65px);
+
+  @media screen and (max-width: 1920px) {
+    padding: 0 350px;
+  }
+  @media screen and (max-width: 1600px) {
+    padding: 0 300px;
+  }
+  @media screen and (max-width: 1366px) {
+    padding: 0 250px;
+  }
+}
+
+.app-footer {
+  height: 65px;
+  text-align: center;
+}

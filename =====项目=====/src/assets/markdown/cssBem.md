@@ -1,7 +1,7 @@
-BEM的意思就是块（block）、元素（element）、修饰符（modifier）
-## 
+**BEM的意思就是块（block）、元素（element）、修饰符（modifier）**
 
 命名约定的模式如下：
+
 ```
 .block{}  
 .block__element{}  
@@ -19,6 +19,7 @@ modifier的类型例如  disabled, highlighted, checked, fixed, size big, color 
 ```
 
 之所以使用两个连字符和下划线而不是一个，是为了在给block或者element起名时，可以在中间加入-或者_,如:
+
 ```
 .site-search{} /* 块 */  
 .site-search__field{} /* 元素 */  
@@ -30,6 +31,7 @@ BEM的关键是光凭名字就可以告诉其他开发者某个标记是用来�
 
 
 下面是个常规的class使用:
+
 ```
 <form class="form">  
   <div class="register">
@@ -56,6 +58,7 @@ BEM的关键是光凭名字就可以告诉其他开发者某个标记是用来�
 }
 ```
 如果改造成BEM，则变成下面:
+
 ```
 <form class="form">  
   <div class="form__register">
@@ -85,11 +88,11 @@ BEM的关键是光凭名字就可以告诉其他开发者某个标记是用来�
 
 ```
 
-
-我们同样可以看到下面的代码， person是个高级别的组件，而手是人的一部分，所属于人，单独的手是不存在的，所以person__hand， 而人有男有女，用来修饰人，person--female， 同样，男人有手，女人也有，person--female__hand，手是男人或者女人的一部分。
-最后，一个人的手有左右之分，person__hand--left，用left修饰person__hand。
+我们同样可以看到下面的代码， person是个高级别的组件，而手是人的一部分，所属于人，单独的手是不存在的，所以 `person__hand`， 而人有男有女，用来修饰人，`person--female`， 同样，男人有手，女人也有，`person--female__hand`，手是男人或者女人的一部分。
+最后，一个人的手有左右之分，`person__hand--left`，用left修饰`person__hand`。
 而人的手里拿着苹果apple，这个苹果不是人的一部分，放在任何位置都是个苹果。
-所以独立使用apple，而不用person__apple写法。
+所以独立使用apple，而不用`person__apple`写法。
+
 ```
 .person{}  
 .person__hand{}  

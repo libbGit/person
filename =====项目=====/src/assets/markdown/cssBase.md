@@ -4,32 +4,47 @@
 - fixed	      固定定位，脱离常规流，后面的元素跟上来。top、left参考body，并且固定在屏幕，不随滚动条的滚动而上下移动。
 - relative   相对定位，不脱离常规流。top、left参考本元素。
 
-
 z-index适用于已经定位的元素。
+在同一个元素内部的堆叠顺序如下
 
-堆叠顺序如下（从下到上）
-- 1、根元素（即HTML元素）的background和borders
-- 2、正常流中非定位后代元素（这些元素顺序按照HTML文档出现顺序）
-- 3、浮动元素(浮动元素之间是不会出现z-index重叠的)
-- 4、已定位后代元素（这些元素顺序按照HTML文档出现顺序）
-	
-**使用 z-index后，4种已定位元素不会按照html文档顺序堆叠，而会按照堆叠上下文堆叠；在每个独立的堆叠上下文中，元素可以自定义子元素自身的堆叠上下文，但子元素堆叠顺序不能超出父元素堆叠上下文。剩下的其他非定位还是按照原来的方式。**
+```
+负z-index < background<  border < 块级元素< 浮动元素 < 内联元素 < 定位元素 < 正z-index 
+```
+即 正z-index 的元素堆叠顺序最高。
+
+
+**堆叠上下文形成条件:**（满足任一即可）
+
+- 根元素 (HTML)
+- z-index 值不为 "auto"的 absolute/relative定位
+- 一个 z-index 值不为 "auto"的 flex 项目 (flex item)，即：父元素 display: flex|inline-flex的元素
+- opacity 属性值小于 1 的元素
+- transform 属性值不为 "none"的元素
+- mix-blend-mode 属性值不为 "normal"的元素
+- filter值不为“none”的元素
+- perspective值不为“none”的元素
+- isolation 属性被设置为 "isolate"的元素
+- position: fixed
+- 在 will-change 中指定了任意 CSS 属性，即便你没有直接指定这些属性的值
+- -webkit-overflow-scrolling 属性被设置 "touch"的元素
+
+结论:
+
+- **1、在同一个堆叠上下文中，z-index大的比z-index小的堆叠层级更高**
+- **2、在不同堆叠上下文中，z-index的大小不会影响到元素的堆叠顺序，此时的堆叠顺序与堆叠上下文所属元素的堆叠顺序有关，与子元素无关。**
+- **3、堆叠上下文中，里面元素的负z-index > 堆叠上下文所属元素border**
+
 ![image](https://github.com/libbGit/static-file/blob/master/image/position-context.png?raw=true)
-
-
-产生堆叠上下文的几种情形:
-- 1、根元素（即HTML元素）
-- 2、已定位元素，并且z-index不是默认的auto。
-- 3、元素transform不为none
-- 4、元素filter属性不为none
 
 ### 2、浮动
 当一个div中的两个元素浮动之后，此时父元素div的高度就会塌陷，此时div的高度为0。
 
 清除浮动的方式:
+
 - 1、浮动元素最后的兄弟元素添加clear:both;
-- 2、浮动元素的容器(父元素)添加overflow:hidden;或overflow:auto;
+- 2、浮动元素的容器(父元素)添加overflow:hidden;或overflow:auto(采用的理论是创建个块级上下文);
 - 3、浮动元素的容器(父元素)添加伪元素:after清除浮动（推荐）
+
 ```
 .clearfix:after{
   content: ""; 
@@ -56,6 +71,8 @@ body的宽度默认为视口宽度，即100vw，而body高度默认为0(可以�
 
 
 ### 4、css优先级
+
+```
     !important > style > id > class > tag
     
     例如:
@@ -66,6 +83,7 @@ body的宽度默认为视口宽度，即100vw，而body高度默认为0(可以�
     !important  //权重正无穷
     
     #d1 div{}  //100+1=101
+```
 
 在html的元素上的css谁的权重大，则使用谁的样式；如果权重相同，则使用最后定义的。
 ![image](https://github.com/libbGit/static-file/blob/master/image/css-important.png?raw=true)
@@ -74,6 +92,7 @@ body的宽度默认为视口宽度，即100vw，而body高度默认为0(可以�
 inline-block的元素之间会受空白区域的影响，元素之间差不多会有一个字符的间隙。如果在同一行内有4个25%相同宽度的元素，会导致最后一个元素掉下来。
 
 解决方案:
+
 - 1、使用浮动float
 - 2、设置父元素的font-size属性为0，然后对子元素重新设定font-size (推荐)
 
@@ -85,6 +104,7 @@ inline-block的元素之间会受空白区域的影响，元素之间差不多�
 
 ```
 利用该属性，可以做如下的事情:
+
 - 阻止该元素上任何点击事件的执行
 - 使该元素上链接显示为默认光标
 - 阻止该元素触发hover和active状态
@@ -108,6 +128,7 @@ inline-block的元素之间会受空白区域的影响，元素之间差不多�
 - initial  初始化为浏览器默认的样式
 
 attr()
+
 ```
 <span data-text="123456789"></span>
 span:before{
@@ -116,11 +137,13 @@ span:before{
 ```
 
 url()
+
 ```
 background-image: url("logo.png");
 ```
 
 calc()
+
 ```
 width: calc(100% - 29px); //减号前后，必须留一个空格
 width: calc(100vw - 29px);

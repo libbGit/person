@@ -66,3 +66,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
+
+每次yarn add 后要修改，因为react-scripts包会变成原始的
+所以请使用 react-script===webpack.config.修改.js merge到原来的js

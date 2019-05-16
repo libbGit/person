@@ -26,6 +26,7 @@
 - align-content  【多根主轴时项目在纵轴的对齐方式，如果项目只有一根主轴线，该属性不起作用】
 
 其中前4种最常用。
+
 #### 2.1、flex-direction属性
 ```
 .box {
@@ -49,8 +50,10 @@ column-reverse：主轴为垂直方向，起点在下沿。
 - 如果子元素定宽和高，则宽/高度使用自己定义的。
 
 ![image](https://github.com/libbGit/static-file/blob/master/image/flex/flex-direction-column-width.png?raw=true)
+
 #### 2.2、flex-wrap属性
 默认情况下，项目都排在一条主轴线上。flex-wrap属性定义，如果一条轴线排不下，如何换行。
+
 ```
 .box{
   flex-wrap: nowrap | wrap | wrap-reverse;
@@ -70,6 +73,7 @@ nowrap（默认值）：如果排列不下时，会按照子项目的实际宽�
 
 #### 2.3、justify-content属性
 定义了项目在主轴上的对齐方式。
+
 ```
 .box {
   justify-content: flex-start | flex-end | center | space-between | space-around;
@@ -82,6 +86,7 @@ space-around：每个项目两侧的间隔相等【不贴边】。
 ```
 #### 2.4、align-items属性
 定义项目在纵轴上如何对齐
+
 ```
 .box {
   align-items: flex-start | flex-end | center | baseline | stretch;

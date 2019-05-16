@@ -27,6 +27,7 @@ $highlight-color: #F90;    //可以在login-wrap外的块中使用
 
 ##### 2、css嵌套
 可以避免重复多次的写父选择器。将嵌套的选择器作为子选择器。
+
 ```
 .center{
   .title{
@@ -45,7 +46,9 @@ $highlight-color: #F90;    //可以在login-wrap外的块中使用
 }
 .center input { background-color: gray;}
 ```
+
 群组的嵌套
+
 ```
 //子元素群组
 .container {
@@ -66,6 +69,7 @@ nav a, aside a {color: blue}
 
 ##### 3、父元素的引用
 有时并不是让嵌套的作为子原则器，而是父选择器的补充，比如:hover,，此时必须使用 父元素的引用符 &, 此时&代表父元素 
+
 ```
 .center{
   input{
@@ -105,6 +109,7 @@ nav + article { margin-top: 0 }
 通过变量我们可以对单个css值，定义定义和重用，如果对多个css值，都写变量，显得太麻烦，所以使用混合器一次性定义多个。
 
 **通过@mixin定义， 通过@include使用**
+
 ```
 @mixin rounded-corners {
   -moz-border-radius: 50px;
@@ -128,7 +133,9 @@ nav + article { margin-top: 0 }
   }
 }
 ```
+
 可以给混合器传参
+
 ```
 @mixin rounded-corners($normal) {
   -moz-border-radius: $normal;
@@ -180,7 +187,6 @@ nav + article { margin-top: 0 }
 ```
 不仅会继承.center自身的所有样式，任何跟.center有关的组合选择器样式也会被.password 以组合选择器的形式继承
 
-
 ```
 //不要使用后代选择器去继承
 .password .text{   //不推荐
@@ -188,6 +194,7 @@ nav + article { margin-top: 0 }
 }
 ```
 extend-Only 选择器【将原来的“ . ”使用“ % ”定义，只用于继承，不会给某个元素用】
+
 ```
 %center{  //只用于@extend的使用，不会给class为center的元素用，况且此时也不是class样式了
   input{

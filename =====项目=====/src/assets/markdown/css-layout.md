@@ -135,7 +135,25 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 ![image](https://github.com/libbGit/static-file/blob/master/image/layout/vertical-middle.png?raw=true)
 
 #### 3、水平垂直居中
-###### a、absolute + transform
+###### a、table-cell  + vertical-align + text-align
+```
+//css
+.parent{
+	width: 120px;
+	height: 80px;
+	
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+//html
+<div class="parent">
+	<div>Demo</div>
+</div>
+```
+
+###### b、absolute + transform
 ```
 //css
 .parent{
@@ -157,8 +175,10 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 </div>
 ```
 ![image](https://github.com/libbGit/static-file/blob/master/image/layout/center.png?raw=true)
-###### b、flex
+
+###### c、flex
 方案1
+
 ```
 //css
 .parent{
@@ -176,7 +196,8 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 </div>
 ```
 
-方案2
+方案2 
+
 ```
 .parent{
 	display: flex;
@@ -197,6 +218,7 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 
 ## 二、多列布局
 一列定宽，一列自适应
+
 ```
 //css
 .container{
@@ -220,7 +242,9 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 </div>
 ```
 ![image](https://github.com/libbGit/static-file/blob/master/image/layout/muti-column.png?raw=true)
+
 ## 三、等分布局
+
 ```
 //css
 .parent {

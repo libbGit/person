@@ -8,7 +8,6 @@ let defaultState = {
 };
 
 const homeInfo = (state = defaultState, action = {}) => {
-  console.log("action home===", action.type);
   let list = _.cloneDeep(state.list);
   switch (action.type) {
     case SAVE_TODO_ITEM:
