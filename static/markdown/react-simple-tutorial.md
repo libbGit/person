@@ -1042,7 +1042,7 @@ class App extends Component {
 }
 export default withRouter(App);
 ```
-这样，App下的所有组件,都能获取到通过this.props获取到==history,location,match== 三个路由参数
+这样，App下的所有组件,都能获取到通过this.props获取到*history,location,match* 三个路由参数
 
 ##### 1)、路由的3中渲染方式:
 
