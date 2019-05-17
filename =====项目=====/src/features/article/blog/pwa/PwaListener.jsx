@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 
 import MarkDown from "@/components/markdown/MarkDown";
-import jsIssueMarkDown from "@/assets/markdown/js-issue.md";
+import mdSource from "@public/markdown/pwa-listener.md";
 
-class JsIssue extends Component {
+class ReactSimpleTutorial extends Component {
   constructor(props, context) {
     super(props);
   }
 
   render() {
-    return <MarkDown source={jsIssueMarkDown} />;
+    return <MarkDown source={mdSource} />;
   }
 
   componentDidMount() {}
 }
 
-export default JsIssue;
+export default ReactSimpleTutorial;

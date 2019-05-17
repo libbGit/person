@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 
 import MarkDown from "@/components/markdown/MarkDown";
-import mdSource from "@/assets/markdown/react-demo-component.md";
+import jsDeepCopyMarkDown from "@public/markdown/js-deep-copy.md";
 
-class ReactDemoComponent extends Component {
+class JsDeepCopy extends Component {
   constructor(props, context) {
     super(props);
   }
 
   render() {
-    return <MarkDown source={mdSource} />;
+    return <MarkDown source={jsDeepCopyMarkDown} />;
   }
 
   componentDidMount() {}
 }
 
-export default ReactDemoComponent;
+export default JsDeepCopy;

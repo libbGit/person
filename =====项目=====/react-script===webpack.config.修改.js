@@ -282,7 +282,8 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
-        "@": path.resolve(__dirname, "../../../src")
+        "@": path.resolve(__dirname, "../../../src"),
+        "@public": path.resolve(__dirname, "../../../public")
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -293,7 +294,7 @@ module.exports = function(webpackEnv) {
         // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
-        new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+        //new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),  //import src之外的路径会报错
       ],
     },
     resolveLoader: {
@@ -361,7 +362,7 @@ module.exports = function(webpackEnv) {
                 // @remove-on-eject-begin
                 babelrc: false,
                 configFile: false,
-                presets: [require.resolve('babel-preset-react-app'),"mobx"],  //���mobx�е�ע���﷨
+                presets: [require.resolve('babel-preset-react-app'),"mobx"],  //mobx中使用注释器语法
                 // Make sure we have a unique cache identifier, erring on the
                 // side of caution.
                 // We remove this when the user ejects because the default
@@ -506,11 +507,7 @@ module.exports = function(webpackEnv) {
               test: /\.md$/,
               use: [
                 {
-                  loader: require.resolve("html-loader")
-                },
-                {
-                  loader: require.resolve("markdown-loader"),
-                  options: {}
+                  loader: require.resolve("raw-loader")
                 }
               ]
             },
@@ -525,7 +522,7 @@ module.exports = function(webpackEnv) {
               // its runtime that would otherwise be processed through "file" loader.
               // Also exclude `html` and `json` extensions so they get processed
               // by webpacks internal loaders.
-              exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/, /\.md$/],
+              exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],  //哪些文件不需要单独打包
               options: {
                 name: 'static/media/[name].[hash:8].[ext]',
               },

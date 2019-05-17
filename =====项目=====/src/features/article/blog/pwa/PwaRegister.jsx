@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import MarkDown from "@/components/markdown/MarkDown";
-import mdSource from "@/assets/markdown/pwa-listener.md";
+import mdSource from "@public/markdown/pwa-register.md";
 
 class ReactSimpleTutorial extends Component {
   constructor(props, context) {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Layout, Menu, Carousel, Icon } from "antd";
 
 import MarkDown from "@/components/markdown/MarkDown";
-import scssMarkDown from "@/assets/markdown/scss.md";
+import layoutMarkDown from "@public/markdown/css-layout.md";
 
 class CssScss extends Component {
   constructor(props, context) {
@@ -10,7 +10,7 @@ class CssScss extends Component {
   }
 
   render() {
-    return <MarkDown source={scssMarkDown} />;
+    return <MarkDown source={layoutMarkDown} />;
   }
 
   componentDidMount() {}

@@ -14,7 +14,7 @@
     margin-top: 0;
     margin-bottom: 16px;
   }
-  h2{
+  h2 {
     font-size: 1.75em;
     border-bottom: 1px solid #eaecef;
     padding-bottom: 0.3em;
@@ -23,14 +23,14 @@
     font-weight: 600;
     line-height: 1.25;
   }
-  h3{
+  h3 {
     font-size: 1.5em;
     margin-top: 24px;
     margin-bottom: 16px;
     font-weight: 600;
     line-height: 1.25;
   }
-  h4{
+  h4 {
     font-size: 1.25em;
     margin-top: 24px;
     margin-bottom: 16px;
@@ -44,24 +44,24 @@
     font-weight: 600;
     line-height: 1.25;
   }
-  h6{
+  h6 {
     font-size: 1em;
     margin-top: 24px;
     margin-bottom: 16px;
     font-weight: 600;
     line-height: 1.25;
-    *{
+    * {
       color: #6a737d;
     }
   }
-  blockquote{
+  blockquote {
     padding: 0 1em;
-    color: #6a737d!important;
+    color: #6a737d !important;
     border-left: 0.25em solid #dfe2e5;
     margin-top: 0;
     margin-bottom: 16px;
-    *{
-      color: #6a737d!important;
+    * {
+      color: #6a737d !important;
     }
   }
   pre {
@@ -71,11 +71,11 @@
     line-height: 1.45;
     background-color: #f6f8fa;
     border-radius: 3px;
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, sans-serif!important;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, sans-serif !important;
     box-shadow: 5px 5px 10px 0px #545454;
   }
   code {
-    font-family:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, sans-serif!important;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, sans-serif !important;
     display: block;
     max-width: auto;
     padding: 0;
@@ -92,9 +92,14 @@
     max-width: 100%;
   }
 
-  .hljs{
-    .hljs-variable{
+  .hljs {
+    .hljs-variable {
       color: #008080;
     }
+  }
+
+  em {
+    background-color: yellow;
+    font-weight: bolder;
   }
 }

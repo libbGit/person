@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 
 import MarkDown from "@/components/markdown/MarkDown";
-import mdSource from "@/assets/markdown/react-simple-tutorial.md";
+import vueVuexMarkDown from "@public/markdown/vue-loader.md";
 
-class ReactSimpleTutorial extends Component {
+class VueLoader extends Component {
   constructor(props, context) {
     super(props);
   }
 
   render() {
-    return <MarkDown source={mdSource} />;
+    return <MarkDown source={vueVuexMarkDown} />;
   }
 
   componentDidMount() {}
 }
 
-export default ReactSimpleTutorial;
+export default VueLoader;

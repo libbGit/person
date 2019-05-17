@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import { Layout, Menu, Carousel, Icon } from "antd";
 
 import MarkDown from "@/components/markdown/MarkDown";
-import flexMarkDown from "@/assets/markdown/flex.md";
+import bemMarkDown from "@public/markdown/cssBem.md";
 
-class CssFlex extends Component {
+class CssBem extends Component {
   constructor(props, context) {
     super(props);
   }
 
   render() {
-    return <MarkDown source={flexMarkDown} />;
+    return <MarkDown source={bemMarkDown} />;
   }
 
   componentDidMount() {}
 }
 
-export default CssFlex;
+export default CssBem;

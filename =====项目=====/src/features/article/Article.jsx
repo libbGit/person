@@ -5,19 +5,23 @@ import PropTypes from "prop-types";
 import { Switch, Route, Link } from "react-router-dom";
 
 import "./article.scss";
-import CssScss from "@/features/article/blog/CssScss";
-import CssFlex from "@/features/article/blog/CssFlex";
-import CssLayout from "@/features/article/blog/CssLayout";
-import CssBem from "@/features/article/blog/CssBem";
-import CssBase from "@/features/article/blog/CssBase";
-import JsEs6Async from "@/features/article/blog/JsEs6Async";
-import JsIssue from "@/features/article/blog/JsIssue";
-import JsDeepCopy from "@/features/article/blog/JsDeepCopy";
-import VueVuex from "@/features/article/blog/VueVuex";
-import ReactSimpleTutorial from "@/features/article/blog/ReactSimpleTutorial";
-import ReactDemoComponent from "@/features/article/blog/ReactDemoComponent";
-import PwaRegister from "@/features/article/blog/PwaRegister";
-import PwaListener from "@/features/article/blog/PwaListener";
+import CssScss from "@/features/article/blog/css/CssScss";
+import CssFlex from "@/features/article/blog/css/CssFlex";
+import CssLayout from "@/features/article/blog/css/CssLayout";
+import CssBem from "@/features/article/blog/css/CssBem";
+import CssBase from "@/features/article/blog/css/CssBase";
+import CssBfc from "@/features/article/blog/css/CssBfc";
+import CssPercent from "@/features/article/blog/css/CssPercent";
+import JsEs6Async from "@/features/article/blog/js/JsEs6Async";
+import JsIssue from "@/features/article/blog/js/JsIssue";
+import JsDeepCopy from "@/features/article/blog/js/JsDeepCopy";
+import VueVuex from "@/features/article/blog/vue/VueVuex";
+import VueLoader from "@/features/article/blog/vue/VueLoader";
+import VueDemoComponent from "@/features/article/blog/vue/VueDemoComponent";
+import ReactSimpleTutorial from "@/features/article/blog/react/ReactSimpleTutorial";
+import ReactDemoComponent from "@/features/article/blog/react/ReactDemoComponent";
+import PwaRegister from "@/features/article/blog/pwa/PwaRegister";
+import PwaListener from "@/features/article/blog/pwa/PwaListener";
 
 import carouselConfig from "@/assets/images/carousel/config.json";
 
@@ -91,6 +95,12 @@ class Article extends Component {
                 <Menu.Item key="css-base">
                   <Link to={`${this.props.match.path}/css-base`}>CSS基础知识</Link>
                 </Menu.Item>
+                <Menu.Item key="css-bfc">
+                  <Link to={`${this.props.match.path}/css-bfc`}>CSS-BFC</Link>
+                </Menu.Item>
+                <Menu.Item key="css-percent">
+                  <Link to={`${this.props.match.path}/css-percent`}>CSS中的百分比值属性</Link>
+                </Menu.Item>
               </SubMenu>
               <SubMenu
                 key="html"
@@ -131,6 +141,12 @@ class Article extends Component {
               >
                 <Menu.Item key="vue-vuex">
                   <Link to={`${this.props.match.path}/vue-vuex`}>vuex最完整的模块定义</Link>
+                </Menu.Item>
+                <Menu.Item key="vue-loader">
+                  <Link to={`${this.props.match.path}/vue-loader`}>vue-loader详解</Link>
+                </Menu.Item>
+                <Menu.Item key="vue-demo-component">
+                  <Link to={`${this.props.match.path}/vue-demo-component`}>vue单组件结构</Link>
                 </Menu.Item>
               </SubMenu>
               <SubMenu
@@ -185,10 +201,14 @@ let RouteView = props => {
       <Route path={`${props.route}/css-layout`} component={CssLayout} />
       <Route path={`${props.route}/css-bem`} component={CssBem} />
       <Route path={`${props.route}/css-base`} component={CssBase} />
+      <Route path={`${props.route}/css-bfc`} component={CssBfc} />
+      <Route path={`${props.route}/css-percent`} component={CssPercent} />
       <Route path={`${props.route}/js-es6-async`} component={JsEs6Async} />
       <Route path={`${props.route}/js-issue`} component={JsIssue} />
       <Route path={`${props.route}/js-deepcopy`} component={JsDeepCopy} />
       <Route path={`${props.route}/vue-vuex`} component={VueVuex} />
+      <Route path={`${props.route}/vue-loader`} component={VueLoader} />
+      <Route path={`${props.route}/vue-demo-component`} component={VueDemoComponent} />
       <Route path={`${props.route}/react-simple-tutorial`} component={ReactSimpleTutorial} />
       <Route path={`${props.route}/react-demo-component`} component={ReactDemoComponent} />
       <Route path={`${props.route}/pwa-register`} component={PwaRegister} />

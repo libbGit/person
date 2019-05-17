@@ -43,13 +43,13 @@ column-reverse：主轴为垂直方向，起点在下沿。
 
 - 如果子元素不定高，则值为row|row-reverse时，默认高度自动铺满容器。（    align-items: stretch;）
 
-![image](https://github.com/libbGit/static-file/blob/master/image/flex/flex-direction-row.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/flex/flex-direction-row.png)
 - 如果子元素不定宽，则值为column|column-reverse时，默认宽度自动铺满容器。（    align-items: stretch;）
 
-![image](https://github.com/libbGit/static-file/blob/master/image/flex/flex-direction-column.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/flex/flex-direction-column.png)
 - 如果子元素定宽和高，则宽/高度使用自己定义的。
 
-![image](https://github.com/libbGit/static-file/blob/master/image/flex/flex-direction-column-width.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/flex/flex-direction-column-width.png)
 
 #### 2.2、flex-wrap属性
 默认情况下，项目都排在一条主轴线上。flex-wrap属性定义，如果一条轴线排不下，如何换行。
@@ -66,10 +66,10 @@ nowrap（默认值）：如果排列不下时，会按照子项目的实际宽�
 
 - 值为wrap
 
-![image](https://github.com/libbGit/static-file/blob/master/image/flex/flex-wrap-no.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/flex/flex-wrap-no.png)
 - 值为nowrap
 
-![image](https://github.com/libbGit/static-file/blob/master/image/flex/flex-wrap.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/flex/flex-wrap.png)
 
 #### 2.3、justify-content属性
 定义了项目在主轴上的对齐方式。
@@ -118,7 +118,7 @@ auto: 表示将此项目伸展并占满空白区域
 none：不填充空白区域
 */
 ```
-![image](https://github.com/libbGit/static-file/blob/master/image/flex/flex-item-auto.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/flex/flex-item-auto.png)
 
 
 #### 3.2、align-self属性
@@ -131,4 +131,4 @@ none：不填充空白区域
 auto：（默认）继承父元素的align-items属性，如果父元素没定义，则使用父元素默认的，即stretch
 */
 ```
-![image](https://github.com/libbGit/static-file/blob/master/image/flex/flex-align-self.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/flex/flex-align-self.png)

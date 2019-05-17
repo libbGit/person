@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import { Layout, Menu, Carousel, Icon } from "antd";
 
 import MarkDown from "@/components/markdown/MarkDown";
-import bemMarkDown from "@/assets/markdown/cssBem.md";
+import scssMarkDown from "@public/markdown/scss.md";
 
-class CssBem extends Component {
+class CssScss extends Component {
   constructor(props, context) {
     super(props);
   }
 
   render() {
-    return <MarkDown source={bemMarkDown} />;
+    return <MarkDown source={scssMarkDown} />;
   }
 
   componentDidMount() {}
 }
 
-export default CssBem;
+export default CssScss;

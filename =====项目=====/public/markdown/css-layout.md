@@ -17,7 +17,7 @@
 ```
 Tips：兼容至IE8.
 
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/horizontal-center.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/horizontal-center.png)
 
 ###### b、table + margin
 ```
@@ -34,7 +34,7 @@ Tips：兼容至IE8.
 ```
 Tips：兼容至IE8.
 
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/horizontal-center.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/horizontal-center.png)
 
 ###### c、absolute + transform
 ```
@@ -57,7 +57,7 @@ Tips：兼容至IE8.
 ```
 Tips：可兼容至IE9，因为transform限制。
 
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/horizontal-center.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/horizontal-center.png)
 
 ###### d、flex  +  justify-content
 ```
@@ -74,7 +74,7 @@ Tips：可兼容至IE9，因为transform限制。
 ```
 Tips：可兼容至IE10，但flex提供的布局很强大。
 
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/horizontal-center.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/horizontal-center.png)
 
 #### 2、垂直居中
 ###### a、tablet-cell + vertical-align
@@ -91,7 +91,7 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 	<div class="child">Demo</div>
 </div>
 ```
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/vertical-middle.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/vertical-middle.png)
 
 ###### b、absolute + transform
 ```
@@ -114,7 +114,7 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
     <div class="child">Demo</div>
 </div>
 ```
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/vertical-middle.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/vertical-middle.png)
 
 ###### c、flex + align-items
 ```
@@ -132,7 +132,7 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 	<div>Demo</div>
 </div>
 ```
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/vertical-middle.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/vertical-middle.png)
 
 #### 3、水平垂直居中
 ###### a、table-cell  + vertical-align + text-align
@@ -174,7 +174,7 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 	<div class="child">Demo</div>
 </div>
 ```
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/center.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/center.png)
 
 ###### c、flex
 方案1
@@ -213,7 +213,7 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 	<div class="child">Demo</div>
 </div>
 ```
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/center.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/center.png)
 
 
 ## 二、多列布局
@@ -241,7 +241,7 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 	</div>
 </div>
 ```
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/muti-column.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/muti-column.png)
 
 ## 三、等分布局
 
@@ -263,4 +263,4 @@ Tips：可兼容至IE10，但flex提供的布局很强大。
 	<div class="column">column 4</div>
 </div>
 ```
-![image](https://github.com/libbGit/static-file/blob/master/image/layout/same-column.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/layout/same-column.png)

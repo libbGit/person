@@ -13,28 +13,30 @@
 > 
 > > refs  获取已渲染的dom元素节点，还可以操作元素  this.refs.inputRef.focus(); 但不能在无状态组件(只接受props，返回element)上使用，因为它们没有渲染的dom实例
 
-在react中对变量设置值和获取值都是采用==单花括号“{}”==
+在react中对变量设置值和获取值都是采用*单花括号"{}"*
 
-当元素类型以小写字母开头时，它表示一个内置的组件，如 <div> 或 <span>，并将字符串 ‘div’ 或 ‘span’ 传 递给 React.createElement。 以大写字母开头的类型，如 “<Foo />” 编译为 React.createElement(Foo)，并它正对应于你在 JavaScript 文件中定义或导入的组件。
+当元素类型以小写字母开头时，它表示一个内置的组件，如 \<div> 或 \<span>，并将字符串 ‘div’ 或 ‘span’ 传 递给 React.createElement。 以大写字母开头的类型，如 \<Foo /> 编译为 React.createElement(Foo)，并它正对应于你在 JavaScript 文件中定义或导入的组件。
 我们建议用大写开头命名组件
 
-==切记，react中组件最好使用**大写开头，中间驼峰**方式命名。否则如果小写，会认为是html标准的组件，而不去解析render。导致内容无法渲染出来==
+
+**切记，react中组件最好使用 *大写开头，中间驼峰* 方式命名。否则如果小写，会认为是html标准的组件，而不去解析render。导致内容无法渲染出来**
+
 
 #### 1、state
 - 总是使用setState更新state，不能直接修改state
 - setState异步的，可以设置回调，在异步处理完值后，进行其他处理。
 
 ```
-this.setState({ name: “i see” });
+this.setState({ name: "i see" });
 // 等价于下面这种
 
 // this.setState((prevState, props) => ({
-//   name: “i see”
+//   name: 'i see"
 //}))
 
 //如果在setState处理完成后，再进行其他操作。则设置回调
 // this.setState((prevState, props) => ({
-//     name: “i see”
+//     name: "i see"
 // }),
 // ()=>{
 //     //异步执行完 成后的回调     
@@ -43,32 +45,33 @@ this.setState({ name: “i see” });
 ```
 setState更新的只是 this.state的值，不是其他的值。
 
+
 #### 2、props
 组件的属性可以接受任意元素，包括基本数据类型(props)、React元素(slot)或函数(包括事件函数)。
 
 props主要来源2处: 父组件传值和通过connect绑定的state和reducer
 
 ```
-<Home author=“libingbing”>内容不错呀</Home>
+<Home author="libingbing">内容不错呀</Home>
 <!--author值，在子组件通过this.props.author获取-->
 
-<Home author=“libingbing”><span>子元素</span></Home>
+<Home author="libingbing"><span>子元素</span></Home>
 <!--span元素，在子组件通过this.props.children获取-->
 
 <TestProp options={<span>我是个react节点</span>}/>
 <!-- 在子元素中直接this.props.options， 并通过{this.props.options}放入jsx中 -->
 
-<Home author=“libingbing” onClickChange={this.handleClickChange}></Home>
+<Home author="libingbing" onClickChange={this.handleClickChange}></Home>
 <!--在子组件中this.props.onClickChange(2)， 则父组件的handleClickChange方法会得到响应-->
 ```
 
 
 
 ```
-<Select defaultValue=“lucy” style={{ width: 120 }}/>
+<Select defaultValue="lucy" style={{ width: 120 }}/>
 
 //如果赋值的是个变量，则只需提供{}即可
-let name = “lucy”;
+let name = "lucy";
 <Select defaultValue={name} style={{ width: 120 }}/>
 //除了字符串之外，其他的（变量，react元素，事件等）必须用{}赋值给props
 ```
@@ -76,8 +79,9 @@ let name = “lucy”;
 
 #### 3、ref
 表示为对组件真正实例的引用
+
 ```
-<input type=“text” ref={this.setTextInputRef} />
+<input type="text" ref={this.setTextInputRef} />
 
 
 this.setTextInputRef = element => {
@@ -94,6 +98,7 @@ this.textInput.value;  //获取value属性
 ```
 
 但是无状态组件，不能有ref属性
+
 #### 4、事件
 采用驼峰法 onClick，onChange...名字和普通的js事件一致
 
@@ -107,7 +112,7 @@ handleClick = (event) => {
 
 
 //给事件传递参数。比如删除列表时的id
-<div onClick={(e)=>this.handleClick(e,“123”)}>click me</div>
+<div onClick={(e)=>this.handleClick(e,"123")}>click me</div>
 
 //作为事件的函数必须用箭头函数的形式，才能绑定this
 handleClick = (event,id) => {
@@ -116,6 +121,8 @@ handleClick = (event,id) => {
 };
 
 ```
+
+
 
 #### 5、样式
 可以通过import导入css文件，但是引入的样式，会在当前组件和所有子组件，孙子组件中都能通过访问到。
@@ -126,24 +133,24 @@ handleClick = (event,id) => {
 
 ```
 //采用className
-<div className=“App”></div>
+<div className="App"></div>
 
 //采用style
 //可以在组件外部提前定义好
 const div1 = {
-  width: “300px”,
-  margin: “30px auto”,
-  backgroundColor: “#44014C”,  //驼峰法
-  minHeight: “200px”,
-  boxSizing: “border-box”
+  width: "300px",
+  margin: "30px auto",
+  backgroundColor: "#44014C",  //驼峰法
+  minHeight: "200px",
+  boxSizing: "border-box"
 };
 
 //然后再render中即可
 <div style={div1}>
-
 ```
 #### 6、条件渲染 和 列表渲染
 条件渲染
+
 ```
 //render函数
 if (isLoggedIn) {
@@ -167,13 +174,14 @@ return (
 ```
 
 列表渲染
+
 ```
 三种方式，
 第一种，在return前，将列表计算完成，并嵌入  dom中  {listItem}
 第二种，直接在dom中计算  
   {
       list.map(item => {
-        return <li key={item + “003”}>{item}</li>;
+        return <li key={item + "003"}>{item}</li>;
       })
   }
 第三种，使用无状态组件，<ListComponent data={list} />    推荐
@@ -181,7 +189,6 @@ return (
 必须提供 key 属性。
 当你在map()方法的内部调用元素时，你最好随时记得为每一个元素加上一个独一无二的key。元素的key在他的兄弟元素之间应该唯一
 ```
-
 
 #### 7、JSX（javascript xml）
 使用点 表示法
@@ -194,11 +201,12 @@ const MyComponents = {
 }
 
 function BlueDatePicker() {
-  return <MyComponents.DatePicker color=“blue” />;
+  return <MyComponents.DatePicker color="blue" />;
 }
 ```
 
 在运行时选择类型
+
 ```
 function Story(props) {
   // 错误！JSX 标签名不能为一个表达式。
@@ -219,9 +227,9 @@ function Story(props) {
 <MyComponent foo={1 + 2 + 3 + 4} />
 
 //字符串常量
-<MyComponent message=“hello world” />
+<MyComponent message="hello world" />
 //等价于 下面
-<MyComponent message={“hello world”} />
+<MyComponent message={'hello world'} />
 
 
 //默认为 True
@@ -232,11 +240,11 @@ function Story(props) {
 
 //扩展属性, 下面两个等效
 function App1() {
-  return <Greeting firstName=“Ben” lastName=“Hector” />;
+  return <Greeting firstName="Ben" lastName="Hector" />;
 }
 
 function App2() {
-  const props = {firstName: “Ben”, lastName: “Hector”};
+  const props = {firstName: 'Ben', lastName: 'Hector'};
   return <Greeting {...props} />;
 }
 
@@ -271,31 +279,43 @@ function Repeat(props) {
 </div>
 
 如果你想让null，boolean值出现在渲染中，则需要转为字符串
-```
 {String(myVariable)}
 ```
 
-```
+
+
 #### 8、react中的变量的定义和使用
-1)、将变量定义在state上。  对于组件中的表单数据或者isShow，isLoading之类的与状态有关的，可以定义到state上，这样的好处是既可在react-devtools中看到，并且还能通过setState修改后，页面渲染完成，立马进行其他的判断(类似于nextTick)
+1)、将变量定义在state上。  对于组件中*的需要根据数据来做出页面响应*的字段，如isShow，isLoading之类的与状态有关的，需要定义到state上。
+这样既可在react-devtools中看到，又能追踪到数据流的变化。
 
 2)、将变量直接定义在this上。
-对于组件中很少改动的数据，如引用类型。具体ref的引用等，可以定义在 this上。
+对于组件中不需要根据数据变化，而更新页面的数据，如定时器ID、ref等，可直接定义在this上，不需要放入state中。
 
 ```
-this.setTextInputRef = element => {
-  this.textInput = element;  //element为普通的javascript dom，textInput持有input dom,  
-  //this.textInput赋值之前，可以不用在constructor中提前声明。直接赋值
-};
+constructor(props,context){
+    super(props);
+    
+    this.setTextInputRef = element => {
+      this.textInput = element;  //element为普通的javascript dom，textInput持有input dom,  
+      //this.textInput赋值之前，可以不用在constructor中提前声明。直接赋值
+    };
+}
+
+componentDidMount() {
+  this.timerID = setInterval(
+      () => this.tick(),
+      1000
+  );
+}
 ```
 this.textInput获得值后，很少再改变，之后都是通过操作dom
+
 ```
 this.textInput.focus();
 this.textInput.value;  //获取value属性
+
+clearInterval(this.timerID);
 ```
-
-
-
 
 
 #### 9、react中定义组件的方法
@@ -329,14 +349,16 @@ function Base(Wrapper) {
 </Form>
 ```
 所以在遇到 一个组件的参数需要传入组件时，可以使用上面3种的任意一种；
+
 ```
 //使用无状态组件
 <Icon component={PandaSvg}/>
 ```
 
+
 #### 10、react中引入静态文件的方式
 ```
-import logo from “@/assets/images/logo.svg”;
+import logo from "@/assets/images/logo.svg";
 
 //render中
 <img src={logo}/>
@@ -344,8 +366,8 @@ import logo from “@/assets/images/logo.svg”;
 
 
 ```
-import fist from “@/assets/images/2131.png”;
-import styled from “styled-components”;
+import fist from "@/assets/images/2131.png";
+import styled from "styled-components";
 
 const SelfButton = styled.div`
   height: 150px;
@@ -374,6 +396,9 @@ const SelfButton = styled.div`
       父  shouldComponentUpdate==>componentWillUpdate==>render                                                                                                        ==>componentDidUpdate
       子                                                      ==>componentWillReceiveProps==>shouldComponentUpdate==>componentWillUpdate==>render==>componentDidUpdate  
 ```
+
+![image](https://images2015.cnblogs.com/blog/588767/201612/588767-20161205190022429-1074951616.jpg)
+
 #### 2、碎片Fragment
 ```
 class Columns extends React.Component {
@@ -387,7 +412,9 @@ class Columns extends React.Component {
     }
 }
 ```
+
 因为render方法返回的元素必须有个跟节点，此处的td元素外面有个div，如果我们不想要这个div。而是直接返回两个td呢?
+
 ```
 //使用 <></> 包裹元素
 class Columns extends React.Component {
@@ -402,12 +429,14 @@ class Columns extends React.Component {
 }
 ```
 但是<></> 不能设置key值，如果要设置key值，则用React.Fragment
+
 ```
-<React.Fragment key={“001”}>
+<React.Fragment key={'001'}>
   <td>Hello</td>
   <td>World</td>
 </React.Fragment>
 ```
+
 
 #### 3、传送门createPortal
 ```
@@ -421,11 +450,11 @@ class Columns extends React.Component {
 
 
 ```
-  const appRoot = document.getElementById(“root”);
+  const appRoot = document.getElementById("root");
   class Model extends Component {
     constructor(props) {
       super(props);
-      this.el = document.createElement(“div”); //只能先创建，不能直接从界面获取，会报dom不存在。
+      this.el = document.createElement("div"); //只能先创建，不能直接从界面获取，会报dom不存在。
     }
     componentDidMount() {
       appRoot.appendChild(this.el);  //等创建的el被传送出去之后，再挂到appRoot下，就能看到了。否则不挂看不到
@@ -437,6 +466,7 @@ class Columns extends React.Component {
 
   export default Model;
 ```
+
 #### 4、过渡和动画
 ```
 > yarn add react-transition-group.
@@ -445,23 +475,24 @@ class Columns extends React.Component {
 
 > react-transition-group库有三个组件:
 > 
-> 1)、Transitiong过渡  表示元素在多个状态之间的切换，比如active，hover等。==它下面的元素总会显示==，只是根据不同的条件显示不同的元素，然后在这几个元素间过渡切换
+> 1)、Transition过渡  表示元素在多个状态之间的切换，比如active，hover等。*它下面的元素总会显示*，只是根据不同的条件显示不同的元素，然后在这几个元素间过渡切换
 > 
 > 2)、CSSTransition 单个元素的显示和隐藏。 
 > 
 > 3)、TransitionGroup 一组元素间的显示和隐藏(比如list的新增，删除)
 
 ##### 4.1、Transition的使用
+
 ```
-import {Transition} from “react-transition-group”;
+import {Transition} from "react-transition-group";
 
 //render中
 <Transition in={show} timeout={3000}>
     {status => {
-      if (status == “entering”) return <div>entering</div>;
-      if (status == “entered”) return <div>entered</div>;
-      if (status == “exiting”) return <div>exiting</div>;
-      if (status == “exited”) return <div>exited</div>;
+      if (status == "entering") return <div>entering</div>;
+      if (status == "entered") return <div>entered</div>;
+      if (status == "exiting") return <div>exiting</div>;
+      if (status == "exited") return <div>exited</div>;
     }}
 </Transition>
 ```
@@ -473,28 +504,29 @@ Transition会直接加载，然后通过show的值判断status加载children的�
 
 
 在Transition上使用animate.css中预设的动画
+
 ```
-import  “animate.css”
+import  "animate.css"
 
 //render
 <Transition in={show} timeout={3000}>
   {status => {
-    if (status == “entering”) return <div className=“animated lightSpeedIn ”>entering</div>;
-    if (status == “entered”) return <div>entered</div>;
-    if (status == “exiting”) return <div className=“animated lightSpeedOut”>exiting</div>;
-    if (status == “exited”) return <div>exited</div>;
+    if (status == "entering") return <div className="animated lightSpeedIn ">entering</div>;
+    if (status == "entered") return <div>entered</div>;
+    if (status == "exiting") return <div className="animated lightSpeedOut">exiting</div>;
+    if (status == "exited") return <div>exited</div>;
   }}
 </Transition>
 ```
 
 ##### 4.2、CSSTransition 的使用
 ```
-import { CSSTransition } from “react-transition-group”;
+import { CSSTransition } from "react-transition-group";
 //render中
 <CSSTransition
     in={this.state.show}
     timeout={300}
-    classNames=“message”
+    classNames="message"
     unmountOnExit
     onExited={() => {
         this.setState({
@@ -505,7 +537,7 @@ import { CSSTransition } from “react-transition-group”;
 </CSSTransition>
 ```
 CSSTransition组件的in如果为false，则里面的元素都不显示，如果为true，则显示。
-
+ 
 classNames的message前缀代表了一组动画的名称，需要在css中定义:
 
 ```
@@ -534,6 +566,7 @@ classNames的message前缀代表了一组动画的名称，需要在css中定义
 ```
 这些都是定义的元素在显示和消失过称中的样式，与最终界面显示的样式无关
 CSSTransition上同时还可以监听以下的事件。
+
 ```
 onEnter 
 onEntering
@@ -546,14 +579,14 @@ onExited
 在CSSTransition上使用animate.css中预设的动画
 
 ```
-import  “animate.css”
+import  "animate.css"
 
 <CSSTransition
   in={this.state.showValidationMessage}
   timeout={300}
   classNames={{
-    enterActive: “animated lightSpeedIn”,
-    exitActive: “animated lightSpeedOut”
+    enterActive: "animated lightSpeedIn",
+    exitActive: "animated lightSpeedOut"
   }}>
   <div>hello</div>
 </CSSTransition>
@@ -563,12 +596,12 @@ import  “animate.css”
 
 ##### 4.3、TransitionGroup的使用
 ```
-import { TransitionGroup } from “react-transition-group”;
+import { TransitionGroup } from "react-transition-group";
 
 //render方法
 <TransitionGroup>
     {this.state.items.map(({ id, text }) => (
-        <CSSTransition key={id} timeout={500} classNames=“fade”>
+        <CSSTransition key={id} timeout={500} classNames="fade">
           <div>
             <Button>&times;</Button>{text}
           </div>
@@ -582,7 +615,7 @@ TransitionGroup下必须包裹CSSTransition子元素。TransitionGroup上不设�
 在TransitionGroup上使用animate.css中预设的动画
 
 ```
-import  “animate.css”
+import  "animate.css"
 
 <TransitionGroup>
   {this.state.items.map(({ id, text }) => (
@@ -590,8 +623,8 @@ import  “animate.css”
       key={id} 
       timeout={500} 
       classNames={{
-        enterActive: “animated lightSpeedIn”,
-        exitActive: “animated lightSpeedOut”
+        enterActive: "animated lightSpeedIn",
+        exitActive: "animated lightSpeedOut"
       }}>
       <div>
         <Button>&times;</Button>{text}
@@ -603,8 +636,10 @@ import  “animate.css”
 同理，也将classNames替换。
 
 
-==注意:==
+*注意:*
 由于react-transition-group定义了动画持续时间timeout，而aniamte.css也有时间，所以两者必须要设置一致。否则一个过渡完了，另一个时间还没到。
+
+
 
 #### 5、CSS in JS
 在react中，如果引入一个.css文件，那么这个文件中的样式，不仅会作用于当前组件，还会作用于当前组件的所有子组件。
@@ -612,18 +647,19 @@ import  “animate.css”
 为了解决这种非组件专属的css，引入下面的几种方式:
 ##### 1)、styled-components
 使用步骤:
+
 ```
 > yarn add styled-components
 ```
 
 ```
-//import “./style.css”;
+//import "./style.css";
 //将css文件改为js
-import “./style.js”;
+import "./style.js";
 ```
 
 ```
-import styled from “styled-components”;
+import styled from "styled-components";
 
 //表示创建一个带样式的div组件，组件名为SelfLink(注意命名方式)
 export const SelfLink = styled.div`
@@ -639,42 +675,43 @@ export const SelfAbbr = styled.abbr`
 ```
 
 ```
-import { SelfLink, SelfAbbr } from “./style.js”;
+import { SelfLink, SelfAbbr } from "./style.js";
 //SelfLink样式组件只对当前组件有效，有后代组件无效
 
 //在react组件的render方法中
 <selfLink>app.js</selfLink>
 //它等价于
-<div style=“height:50px;color:blue;”>app.js</div>
+<div style="height:50px;color:blue;">app.js</div>
 
 //给样式组件设置属性
-<SelfAbbr title=“Peoples Republic of China”>PRC</SelfAbbr>
+<SelfAbbr title="People's Republic of China">PRC</SelfAbbr>
 等价于
-<abbr title=“Peoples Republic of China”>PRC</abbr>
+<abbr title="People's Republic of China">PRC</abbr>
 ```
 这样我们可以在根组件下导入一个reset.css文件，然后在每个自身组件下导入 styled-components 样式组件。
 
 styled.*后面不能随便加元素。必须是下面类型中的一种
+
 ```
 //html = 
-“a”, “abbr”, “address”, “area”, “article”, “aside”, “audio”, 
-“b”, “base”, “bdi”, “bdo”, “big”, “blockquote”, “body”, “br”, “button”, 
-“canvas”, “caption”, “cite”, “code”, “col”, “colgroup”, 
-“data”, “datalist”, “dd”, “del”, “details”, “dfn”, “dialog”, “div”, “dl”, “dt”, 
-“em”, “embed”, 
-“fieldset”, “figcaption”, “figure”, “footer”, “form”, 
-“h1”, “h2”, “h3”, “h4”, “h5”, “h6”, “head”, “header”, “hgroup”, “hr”, “html”, 
-“i”, “iframe”, “img”, “input”, “ins”, “kbd”, “keygen”, “label”, “legend”, “li”, “link”, 
-“main”, “map”, “mark”, “marquee”, “menu”, “menuitem”, “meta”, “meter”, “nav”, “noscript”, 
-“object”, “ol”, “optgroup”, “option”, “output”, “p”, “param”, “picture”, “pre”, “progress”, 
-“q”, “rp”, “rt”, “ruby”, “s”, “samp”, “script”, “section”, “select”, “small”, “source”, “span”, “strong”, “style”, “sub”, “summary”, “sup”, 
-“table”, “tbody”, “td”, “textarea”, “tfoot”, “th”, “thead”, “time”, “title”, “tr”, “track”, “u”, “ul”, “var”, “video”, “wbr”,
+'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 
+'b', 'base', 'bdi', 'bdo', 'big', 'blockquote', 'body', 'br', 'button', 
+'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 
+'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 
+'em', 'embed', 
+'fieldset', 'figcaption', 'figure', 'footer', 'form', 
+'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 
+'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'keygen', 'label', 'legend', 'li', 'link', 
+'main', 'map', 'mark', 'marquee', 'menu', 'menuitem', 'meta', 'meter', 'nav', 'noscript', 
+'object', 'ol', 'optgroup', 'option', 'output', 'p', 'param', 'picture', 'pre', 'progress', 
+'q', 'rp', 'rt', 'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 'style', 'sub', 'summary', 'sup', 
+'table', 'tbody', 'td', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr',
 
 // SVG
-“circle”, “clipPath”, “defs”, “ellipse”, “foreignObject”, 
-“g”, “image”, “line”, “linearGradient”, “mask”, 
-“path”, “pattern”, “polygon”, “polyline”, “radialGradient”, “rect”, 
-“stop”, “svg”, “text”, “tspan”
+'circle', 'clipPath', 'defs', 'ellipse', 'foreignObject', 
+'g', 'image', 'line', 'linearGradient', 'mask', 
+'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 
+'stop', 'svg', 'text', 'tspan'
 
 ```
 比如写styled.img就会报错
@@ -683,16 +720,16 @@ styled.*后面不能随便加元素。必须是下面类型中的一种
 
 ```
 //styled-components中使用属性
-<SelfButton type=“primary”>SelfButton</SelfButton>
+<SelfButton type="primary">SelfButton</SelfButton>
 
 //使用${(props)=>{//todo}}  获取值
 export const SelfButton = styled.div`
   height:50px;
-  color:${props => (props.type === “primary” ? “palevioletred” : “yellow”)};
+  color:${props => (props.type === "primary" ? "palevioletred" : "yellow")};
 `
-//如果 props.type? “palevioletred” : “yellow” 表示是否存在type属性，不管值是多少
+//如果 props.type? "palevioletred" : "yellow" 表示是否存在type属性，不管值是多少
 ```
-注意在css中 使用颜色时，不需要加引号，palevioletred即可，而在${()=>()}表达式中，因为无法识别palevioletred，所以使用引号“palevioletred”,但在最后解析完，在chrome中还是展示  color:palevioletred。
+注意在css中 使用颜色时，不需要加引号，palevioletred即可，而在${()=>()}表达式中，因为无法识别palevioletred，所以使用引号"palevioletred",但在最后解析完，在chrome中还是展示  color:palevioletred。
 
 使用${}  获取值时，比如传入一个函数(props)=>{}，参数为props，然后将结果在函数中返回
 
@@ -711,6 +748,7 @@ export const PrimaryButton = styled(BaseButton)`
 `;
 ```
 PrimaryButton组件继承了BaseButton组件的样式，并且使用自身的color:palevioletred,将继承的 color:yellow;覆盖掉，最终PrimaryButton结果:
+
 ```
 {
   height: 50px;
@@ -720,8 +758,9 @@ PrimaryButton组件继承了BaseButton组件的样式，并且使用自身的col
 }
 ```
 当然，你任然可以在 PrimaryButton 组件上使用style属性，设置行内样式。
+
 ```
-<SelfButton color=“palevioletred” style={{color:“pink”}}>SelfButton</SelfButton>
+<SelfButton color="palevioletred" style={{color:"pink"}}>SelfButton</SelfButton>
 //则最终color为pink
 ```
 
@@ -732,26 +771,27 @@ Radium是一组用于管理React元素上的内联样式的工具.
 而Radium可以直接处理这些问题，并且可以直接使用js中的数学，连接，正则表达式，条件，函数等。
 
 **使用步骤:**
+
 ```
 //1
-import Radium from “radium”;
+import Radium from 'radium';
 
 //2 定义样式
 var styles = {
   base: {
-    color: “#fff”,
+    color: '#fff',
     
-    “:hover”: {
-      background: “#0074d9”
+    ':hover': {
+      background: '#0074d9'
     }
   },
 
   primary: {
-    background: “#0074D9”
+    background: '#0074D9'
   },
 
   warning: {
-    background: “#FF4136”
+    background: '#FF4136'
   }
 };
 
@@ -774,11 +814,11 @@ export default Radium(Form);
 ```
 var styles = {
   base: {
-    background: “blue”,
+    background: 'blue',
     border: 0,
     borderRadius: 4,
-    color: “white”,
-    padding: “1.5em”
+    color: 'white',
+    padding: '1.5em'
   }
 };
 
@@ -788,19 +828,20 @@ var styles = {
 ```
 
 修饰符
+
 ```
 var styles = {
   base: {  //这个base应用到那个react元素上，那么那个react元素获得:hover的样式
-    “:hover”: {
-      backgroundColor: “red”
+    ':hover': {
+      backgroundColor: 'red'
     },
 
-    “:focus”: {
-      backgroundColor: “green”
+    ':focus': {
+      backgroundColor: 'green'
     },
 
-    “:active”: {
-      backgroundColor: “yellow”
+    ':active': {
+      backgroundColor: 'yellow'
     },
   },
 };
@@ -810,12 +851,13 @@ var styles = {
 </button>
 ```
 媒体查询
+
 ```
 var style = {
-  width: “25%”,
+  width: '25%',
 
-  “@media (min-width: 320px)”: {
-    width: “100%”
+  '@media (min-width: 320px)': {
+    width: '100%'
   }
 };
 
@@ -828,13 +870,13 @@ var style = {
 
 //还可以在媒体查询中嵌套修饰符
 var style = {
-  width: “25%”,
+  width: '25%',
 
-  “@media (min-width: 320px)”: {
-    width: “100%”,
+  '@media (min-width: 320px)': {
+    width: '100%',
 
-    “:hover”: {
-      background: “white”
+    ':hover': {
+      background: 'white'
     }
   }
 };
@@ -844,37 +886,40 @@ var style = {
 ```
 
 在单个组件中设置多个元素的样式
+
 ```
 var styles = {
   both: {
-    background: “black”,
-    border: “solid 1px white”,
+    background: 'black',
+    border: 'solid 1px white',
     height: 100,
     width: 100
   },
   one: {
-    “:hover”: {
-      background: “blue”,
+    ':hover': {
+      background: 'blue',
     }
   },
   two: {
-    “:hover”: {
-      background: “red”,
+    ':hover': {
+      background: 'red',
     }
   }
 };
-<div key=“one” style={[styles.both, styles.one]} />
-<div key=“two” style={[styles.both, styles.two]} />
+<div key="one" style={[styles.both, styles.one]} />
+<div key="two" style={[styles.both, styles.two]} />
 ```
 
 
 
+
 ### 三、redux
-![image](https://github.com/libbGit/static-file/blob/master/image/react/redux-flow.jpg?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/react/redux-flow.jpg)
 
 应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。 惟一改变 state 的办法是触发 action，一个描述发生什么的对象。 为了描述 action 如何改变 state 树，你需要编写 reducers。
 
 从图中我们得出以下执行步骤:
+
 - 1)、react组件通过action creator获得一个action对象，
 - 2)、在react组件中通过store的dispatch方法传入并执行这个action
 - 3)、store接受到这个action，然后执行reducers方法，将上一次的state和当前的action传入
@@ -883,24 +928,26 @@ var styles = {
 
 
 redux中的store提供下列方法:
+
 - getState();  获取当前的state树
 - dispatch(action);  分发action
 - subscribe(listener);  监听store中state的改变
 
 
-
 react本身和redux没什么关系，因为react是view层面的框架，redux是状态管理的框架，使用react-redux将两者联系起来，react-redux只有两个接口:
+
 - Provider  在根组件中使用，使得所以子组件都能够获得 Redux store
 - connect   在组件中连接 React 组件与 Redux store，可以获取state和dispatch。
 
 
 **redux的中间件**
-![image](https://github.com/libbGit/static-file/blob/master/image/react/redux-thunk.jpg?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/react/redux-thunk.jpg)
 正常情况下，action是个对象，包含type和payload，当redux调用dispath之后，store直接接受action，并找到对应的reducers去执行。
 
 而如果使用中间件之后，action可以是个方法，在这个方法中可以执行异步操作。这样，当redux调用dispatch后，store发现action是个方法，则不会直接给reducer，而是先执行方法，然后再方法执行结束之后，显示调用dispatch方法，store才会去调 reducer。
 
 常用的redux中间件有:
+
 - redux-thunk
 - redux-saga
 - Redux-Promise
@@ -910,17 +957,17 @@ react本身和redux没什么关系，因为react是view层面的框架，redux�
 
 ```
 //App.js
-import React from “react”;
-import ReactDOM from “react-dom”;
-import “@/assets/css/index.css”;
-import App from “@/App”;
-import * as serviceWorker from “@/serviceWorker”;
+import React from "react";
+import ReactDOM from "react-dom";
+import "@/assets/css/index.css";
+import App from "@/App";
+import * as serviceWorker from "@/serviceWorker";
 
-import { BrowserRouter } from “react-router-dom”;
-import { Provider } from “react-redux”;
-import { PersistGate } from “redux-persist/integration/react”;  //将redux持久化
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";  //将redux持久化
 
-import configureStore from “@/store/Index”;
+import configureStore from "@/store/Index";
 const { store, persistor } = configureStore;
 
 ReactDOM.render(
@@ -931,22 +978,22 @@ ReactDOM.render(
       </BrowserRouter>
     </PersistGate>
   </Provider>,
-  document.getElementById(“root”)
+  document.getElementById("root")
 );
 ```
 
 
 ```
 //store.js
-import { createStore, applyMiddleware, compose } from “redux”;
-import { persistStore, persistCombineReducers } from “redux-persist”;
-import storage from “redux-persist/lib/storage/index”; // defaults to localStorage for web and AsyncStorage for react-native
+import { createStore, applyMiddleware, compose } from "redux";
+import { persistStore, persistCombineReducers } from "redux-persist";
+import storage from "redux-persist/lib/storage/index"; // defaults to localStorage for web and AsyncStorage for react-native
 
-import reducers from “./reducers/Index”;
-import thunk from “redux-thunk”;
+import reducers from "./reducers/Index";
+import thunk from "redux-thunk";
 
 //持久化key
-const config = { key: “root”, storage };
+const config = { key: "root", storage };
 let persistedReducer = persistCombineReducers(config, reducers); //将redux持久化，并将多个reducer combine起来
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; //配置redux devtools
@@ -978,6 +1025,8 @@ export default withRouter(
 
 redux执行action时，是遍历所有加载的模块的reducer，然后找到匹配模块的去执行。并更新那个模块的state
 
+
+
 ### 四、route
 
 ```
@@ -987,6 +1036,7 @@ redux执行action时，是遍历所有加载的模块的reducer，然后找到�
 在组件中按需加载，rect-router4中不在进行集中配置。即在当前组件中定义link和匹配到link后需要跳转的组件
 
 如果子组件需要获取路由的信息，则必须使用withRouter包裹，所以将withRouter放到根组件下
+
 ```
 class App extends Component {
 }
@@ -995,32 +1045,32 @@ export default withRouter(App);
 这样，App下的所有组件,都能获取到通过this.props获取到==history,location,match== 三个路由参数
 
 ##### 1)、路由的3中渲染方式:
-- <Route component>  
-- <Route render>
-- <Route children>
+
+- \<Route component>  
+- \<Route render>
+- \<Route children>
 可以任意的使用其中的一种，不能同时使用多种。
 
 
 ```
-import {  Switch, Route, Link } from “react-router-dom”;
+import {  Switch, Route, Link } from "react-router-dom";
 ```
 
 
 ```
 //<Route component>   
-<Route path=“/user/:username” component={User} />
-
+<Route path="/user/:username" component={User} />
 ```
 
 ```
 //<Route render>   这种方式不会将组件卸载，而是直接在线更新渲染。
 //props中含有history,location,match 3个属性。 render方式可以充当路由钩子，可以在满足条件时渲染组件。(router V4中取消了路由钩子)
-<Route path=“/user” render={props => (
+<Route path="/user" render={props => (
     this.state.auth ? (
         <Component {...props}/>
     ) : (
         <Redirect to={{
-            pathname: “/login”,
+            pathname: '/login',
             state: { from: props.location }
         }}/>
     )
@@ -1031,7 +1081,7 @@ import {  Switch, Route, Link } from “react-router-dom”;
 ```
 //<Route children>  和render类似，只是它用来判断当前路径和路由是否匹配，children中可以接收history,location,match 3个属性。如果不匹配，match为null。这允许您根据路径是否匹配动态调整UI。
 <Route path={to} children={({ match }) => (
-      <li className={match ? “active” : “”}>
+      <li className={match ? "active" : ""}>
         <Link to={to} {...rest} />
       </li>
 )}/>
@@ -1039,13 +1089,14 @@ import {  Switch, Route, Link } from “react-router-dom”;
 
 
 父和子组件的路由嵌套
+
 ```
 //父组件中
-<Link to=“/”>home</Link>
-<Link to=“/form”>form</Link>
+<Link to="/">home</Link>
+<Link to="/form">form</Link>
 
-<Route exact path=“/” component={Home} />
-<Route path=“/form” component={Form} />
+<Route exact path="/" component={Home} />
+<Route path="/form" component={Form} />
 ```
 
 ```
@@ -1058,10 +1109,10 @@ import {  Switch, Route, Link } from “react-router-dom”;
 
 ```
 //通过params:  
-<Route path=“/form/:id”   component={Form}></Route>
+<Route path='/form/:id'   component={Form}></Route>
 
-html方式      <Link to=“/form/2”>form</Link>    　　　　
-js方式        this.props.history.push(“/form/2”)
+html方式      <Link to="/form/2">form</Link>    　　　　
+js方式        this.props.history.push('/form/2')
 
 获取          this.props.match.params.id
 ```
@@ -1069,16 +1120,16 @@ js方式        this.props.history.push(“/form/2”)
 
 ```
 //通过query
-<Route path=“/form” component={Form} />  
+<Route path="/form" component={Form} />  
 
-html方式    <Link to=“/form?day=Friday”>form</Link>
-            <Link to={{pathname:“/form”,search:“?day=Friday”}}>form</Link>
+html方式    <Link to="/form?day=Friday">form</Link>
+            <Link to={{pathname:"/form",search:"?day=Friday"}}>form</Link>
 
-JS方式      this.props.history.push({pathname:“/form”,search:“?day=Friday”});
+JS方式      this.props.history.push({pathname:"/form",search:"?day=Friday"});
 
 获取方式1   this.props.location.search     //  ?day=Friday (只能获取到字符串) 
-获取方式2   new URLSearchParams(“?day=Friday”).get(“day”)     // “Friday”
-            //在现代浏览器中，可以通过URLSearchParams将“?day=friday”解析,然后用get获得
+获取方式2   new URLSearchParams("?day=Friday").get("day")     // "Friday"
+            //在现代浏览器中，可以通过URLSearchParams将"?day=friday"解析,然后用get获得
 ```
 
 
@@ -1094,70 +1145,28 @@ This git repository has untracked files or uncommitted changes:
 cd my-react-app
 git init
 git add .
-git commit -m “add_upload_picture”  //报错的话，修改描述
+git commit -m 'add_upload_picture'  //报错的话，修改描述
 npm run eject
 ```
 出现如下的界面表示成功提交
 
 ```
 Auto packing the repository in background for optimum performance.
-See “git help gc” for manual housekeeping.
+See "git help gc" for manual housekeeping.
 Counting objects: 23004, done.
 Delta compression using up to 4 threads.
 Compressing objects:  22% (4782/21732)
 ```
 
 
-
-
-
-##### 2)、覆盖ui库的样式
-有时覆盖ui库的div会直接在body下，所以在组件里面是无法操作样式的，所以必须定义一个全局的样式,
-
-有两种方式:
-- 在顶层的App.css中定义全局样式
-- 在本组件中使用styled-components中的createGlobalStyle定义全局的样式
-
-```
-方式1
-//Login.js
-<DatePicker dropdownClassName=“hidden-year” format=“MM/DD” />
-
-//App.css
-/* hidden-year来限制只对 有hidden-year地方的组件有效，不然就修改了所有全局的日历样式 */
-.hidden-year .ant-calendar-year-select{
-  display: none!important;
-}
-```
-
-
-```
-方法2
-//login级别下的style.js
-import styled, { createGlobalStyle } from “styled-components”;
-export const Globalstyle = createGlobalStyle`　
-.hidden-year .ant-calendar-year-select{
-    display: none!important;
-  }
-`;
-
-
-//Login.js
-import { Globalstyle } from “./style”;
-
-//render方法， 必须引入Globalstyle。注意Globalstyle不接受任何的children，让在react tree的开头就可以了
-<Globalstyle />
-<DatePicker dropdownClassName=“hidden-year” format=“MM/DD”/>
-```
-
-##### 3)、在react中使用sass
+##### 2)、在react中使用sass
 因为react中默认已经支持了sass(通过eject后的文件可以看出。)
 
 ```
   {
     test: sassRegex,
     exclude: sassModuleRegex,
-    use: getStyleLoaders({ importLoaders: 2 }, “sass-loader”),
+    use: getStyleLoaders({ importLoaders: 2 }, 'sass-loader'),
   },
 ```
 但是在引入.scss的文件时，报错。所以需要安装node-sass
@@ -1167,21 +1176,25 @@ yarn add node-sass
 ```
 如果让npm rebuild node-sass，直接删除node_modules。然后重新安装 >yarn
 
-##### 4)、不在组件中，而在其他地方(如axios拦截器中)使用router进行页面跳转
+##### 3)、不在组件中，而在其他地方(如axios拦截器中)使用router进行页面跳转
 在顶级组件中将this.props.history赋值给window的一个变量
+
 ```
 componentDidMount(){
     window.myhistory = this.props.history
 }
 ```
 在axios拦截器中使用window的变量
+
 ```
-window.myhistory.push(“/form”, { day: “Friday” })
+window.myhistory.push('/form', { day: 'Friday' })
 ```
-##### 5)、不在组件中，而在其他地方(如axios拦截器中)更新store中的state
+
+##### 4)、不在组件中，而在其他地方(如axios拦截器中)更新store中的state
 在对应的文件中
+
 ```
-import configureStore from “@/store”;
+import configureStore from "@/store";
 
 
 //在对应的位置
@@ -1192,11 +1205,11 @@ store.dispatch(action);
 
 ##### 5)、在redux的reducer中，如何更新其他模块的state
 由于redux中在执行dispath时，是遍历所有加载的reducer，所以只需要在dispatch的后面，执行另一个模块的action即可
-```
-dispath({type:“LOGIN”, payload:10});
-dispath({type:“HOME”, payload:20});
-```
 
+```
+dispath({type:'LOGIN', payload:10});
+dispath({type:'HOME', payload:20});
+```
 
 在react中如何使用css modules？
 创建的css名称  如下
@@ -1213,7 +1226,7 @@ login.module.css
   height: 150px;
   width: 150px;
   color: red;
-  background-image: url(“@/assets/images/2131.png”);
+  background-image: url("@/assets/images/2131.png");
   background-size: 150px 150px;
 }
 
@@ -1222,7 +1235,7 @@ login.module.css
 在react组件中
 
 ```
-import loginCss from “./login.module.css”;
+import loginCss from "./login.module.css";
 
 
 //render中
@@ -1233,19 +1246,21 @@ import loginCss from “./login.module.css”;
 ##### 6)、动态加载静态资源时，路径不能为变量
 
 ```
-let url = “@/assets/images/carousel/logo.svg”
+let url = "@/assets/images/carousel/logo.svg"
 require(url)    //报错
 
-let url = “logo.svg”
-require(“@/assets/images/carousel/”+url); //正确
+let url = "logo.svg"
+require("@/assets/images/carousel/"+url); //正确
 ```
+
 这是因为webpack在编写完，保存时，需要进行工程的打包，然后打包正确，才能热加载运行并刷新页面，打包静态资源时，如果require中传入的是个变量。那么在打包时，它有可能是计算机系统中的任何目录下的任何文件。所以至少需要给出在哪个路径下，这样才能精确的将那个路径下的对应文件打包，然后在代码运行时，直接用对应文件名生成正则匹配(因为打包后的文件，可能有hash值。不能直接查文件名)，找到后，加载到代码中。
 
-所以 ==应该是尽可能静态化表达包所处的路径，最小化变量控制的区域。==
-```
-let url = “logo.svg”
-require(“@/assets/images/carousel/”+url); //好
+所以 *应该是尽可能静态化表达包所处的路径，最小化变量控制的区域。*
 
-let url = “carousel/logo.svg”
-require(“@/assets/images/”+url); //不好
+```
+let url = "logo.svg"
+require("@/assets/images/carousel/"+url); //好
+
+let url = "carousel/logo.svg"
+require("@/assets/images/"+url); //不好
 ```

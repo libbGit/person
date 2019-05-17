@@ -34,7 +34,7 @@ z-index适用于已经定位的元素。
 - **2、在不同堆叠上下文中，z-index的大小不会影响到元素的堆叠顺序，此时的堆叠顺序与堆叠上下文所属元素的堆叠顺序有关，与子元素无关。**
 - **3、堆叠上下文中，里面元素的负z-index > 堆叠上下文所属元素border**
 
-![image](https://github.com/libbGit/static-file/blob/master/image/position-context.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/position-context.png)
 
 ### 2、浮动
 当一个div中的两个元素浮动之后，此时父元素div的高度就会塌陷，此时div的高度为0。
@@ -86,7 +86,7 @@ body的宽度默认为视口宽度，即100vw，而body高度默认为0(可以�
 ```
 
 在html的元素上的css谁的权重大，则使用谁的样式；如果权重相同，则使用最后定义的。
-![image](https://github.com/libbGit/static-file/blob/master/image/css-important.png?raw=true)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/css-important.png)
 
 ### 5、清除行内元素之间的空白
 inline-block的元素之间会受空白区域的影响，元素之间差不多会有一个字符的间隙。如果在同一行内有4个25%相同宽度的元素，会导致最后一个元素掉下来。
