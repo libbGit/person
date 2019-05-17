@@ -1065,7 +1065,9 @@ import {  Switch, Route, Link } from "react-router-dom";
 ```
 //<Route render>   这种方式不会将组件卸载，而是直接在线更新渲染。
 //props中含有history,location,match 3个属性。 render方式可以充当路由钩子，可以在满足条件时渲染组件。(router V4中取消了路由钩子)
-<Route path="/user" />
+<Route path="/user" render={props=>{
+
+}}/>
 ```
 
 ```
