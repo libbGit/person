@@ -1067,7 +1067,8 @@ import {  Switch, Route, Link } from "react-router-dom";
 //props中含有history,location,match 3个属性。 render方式可以充当路由钩子，可以在满足条件时渲染组件。(router V4中取消了路由钩子)
 <Route path="/user" render={props => (
    this.state.auth ? 
-      (<Component {...props}/>):(<img/>)
+      (<Component {...props}/>):
+      (<Redirect />)
 )}/>
 ```
 
