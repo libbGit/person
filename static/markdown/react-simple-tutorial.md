@@ -1068,10 +1068,9 @@ import {  Switch, Route, Link } from "react-router-dom";
 <Route path="/user" render={props => (
    this.state.auth ? 
       (<Component {...props}/>):
-      (<Redirect to={{
-        pathname: '/login',
-        state:{}
-      }}/>)
+      (<Redirect to={
+        { pathname: '/login', state:{}}
+     }/>)
 )}/>
 ```
 
