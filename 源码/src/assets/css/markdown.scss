@@ -1,0 +1,105 @@
+.markdown-body {
+  color: #24292e;
+  font-family: "-apple-system", BlinkMacSystemFont, "\5FAE\8F6F\96C5\9ED1", "PingFang SC", Helvetica, Arial,
+    "Hiragino Sans GB", "Microsoft YaHei", SimSun, "\5B8B\4F53", Heiti, "\9ED1\4F53", sans-serif;
+
+  * {
+    color: #24292e;
+    tab-size: 4;
+    box-sizing: border-box;
+    font-family: "-apple-system", BlinkMacSystemFont, "\5FAE\8F6F\96C5\9ED1", "PingFang SC", Helvetica, Arial,
+      "Hiragino Sans GB", "Microsoft YaHei", SimSun, "\5B8B\4F53", Heiti, "\9ED1\4F53", sans-serif;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-size: 1.75em;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  h3 {
+    font-size: 1.5em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  h4 {
+    font-size: 1.25em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  h5 {
+    font-size: 1em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  h6 {
+    font-size: 1em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    * {
+      color: #6a737d;
+    }
+  }
+  blockquote {
+    padding: 0 1em;
+    color: #6a737d !important;
+    border-left: 0.25em solid #dfe2e5;
+    margin-top: 0;
+    margin-bottom: 16px;
+    * {
+      color: #6a737d !important;
+    }
+  }
+  pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 13px;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, sans-serif !important;
+    box-shadow: 5px 5px 10px 0px #545454;
+  }
+  code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, sans-serif !important;
+    display: block;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: #f6f8fa;
+    border: 0;
+    white-space: pre;
+    display: block;
+  }
+  img {
+    max-width: 100%;
+  }
+
+  .hljs {
+    .hljs-variable {
+      color: #008080;
+    }
+  }
+
+  em {
+    background-color: yellow;
+    font-weight: bolder;
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "person",
+  "homepage": "https://libbgit.github.io/person/",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "animate.css": "^3.7.0",
+    "antd": "^3.18.1",
+    "axios": "^0.18.0",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.11",
+    "mathjs": "^5.10.0",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "raw-loader": "^2.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
+    "react-router-config": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-preset-mobx": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "markdown-loader": "^5.0.0",
+    "markdown-to-jsx": "^6.9.4",
+    "mobx-react-devtools": "^6.1.1",
+    "node-sass": "^4.12.0"
+  }
+}
