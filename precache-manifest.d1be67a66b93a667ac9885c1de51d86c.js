@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "74bbeb115f9722ad9bfe4b26a08dd7e5",
+    "revision": "2e1a3a6a9c2d6471757bed3296ef147f",
     "url": "/person/index.html"
   },
   {
-    "revision": "97f47faf09084c5c0d81",
-    "url": "/person/static/css/main.7bb2236c.chunk.css"
+    "revision": "cf6836f0612f38f950eb",
+    "url": "/person/static/css/main.ce146343.chunk.css"
   },
   {
-    "revision": "17cd6ed7195f3ae98d6e",
+    "revision": "751aded9676e9723df10",
     "url": "/person/static/css/vendors~main.742b6d91.chunk.css"
   },
   {
-    "revision": "97f47faf09084c5c0d81",
-    "url": "/person/static/js/main.f0104d44.chunk.js"
+    "revision": "cf6836f0612f38f950eb",
+    "url": "/person/static/js/main.cc6b8db2.chunk.js"
   },
   {
     "revision": "eeec2df47e524a05c2c2",
     "url": "/person/static/js/runtime~main.410deb47.js"
   },
   {
-    "revision": "17cd6ed7195f3ae98d6e",
-    "url": "/person/static/js/vendors~main.f85a1f43.chunk.js"
+    "revision": "751aded9676e9723df10",
+    "url": "/person/static/js/vendors~main.8572ee5c.chunk.js"
   },
   {
     "revision": "25fd76ca3c373b39d3b6b5835a20ef7d",
@@ -72,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/person/static/markdown/react-demo-component.md"
   },
   {
-    "revision": "41d301f3e67a65164e56b20edc709171",
+    "revision": "a3bdacd002d1c34ef438c54a52a95edc",
     "url": "/person/static/markdown/react-simple-tutorial.md"
   },
   {
@@ -80,12 +80,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/person/static/markdown/scss.md"
   },
   {
-    "revision": "e136f8c2206e29551afadfd0f0fb1b42",
-    "url": "/person/static/markdown/vue-demo-component.md"
+    "revision": "166bf6fb8680e66033a2dec3461ce193",
+    "url": "/person/static/markdown/vue-assets-url.md"
   },
   {
-    "revision": "232a544ca153acaec2770268bf0b948a",
-    "url": "/person/static/markdown/vue-loader.md"
+    "revision": "e136f8c2206e29551afadfd0f0fb1b42",
+    "url": "/person/static/markdown/vue-demo-component.md"
   },
   {
     "revision": "132b8f0f7d17624b385ed52d89710aba",

@@ -384,7 +384,7 @@ const SelfButton = styled.div`
 ```
 
 
-### 二、高级
+### 三、高级
 #### 1、生命周期
 ```
 //父  子组件的生命周期执行属性
@@ -397,7 +397,8 @@ const SelfButton = styled.div`
       子                                                      ==>componentWillReceiveProps==>shouldComponentUpdate==>componentWillUpdate==>render==>componentDidUpdate  
 ```
 
-![image](https://images2015.cnblogs.com/blog/588767/201612/588767-20161205190022429-1074951616.jpg)
+![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/react/react-life-cycle.jpg)
+
 
 #### 2、碎片Fragment
 ```
@@ -913,7 +914,7 @@ var styles = {
 
 
 
-### 三、redux
+### 四、redux
 ![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/react/redux-flow.jpg)
 
 应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。 惟一改变 state 的办法是触发 action，一个描述发生什么的对象。 为了描述 action 如何改变 state 树，你需要编写 reducers。
@@ -1027,7 +1028,7 @@ redux执行action时，是遍历所有加载的模块的reducer，然后找到�
 
 
 
-### 四、route
+### 五、route
 
 ```
 > yarn add react-router-dom
@@ -1042,7 +1043,7 @@ class App extends Component {
 }
 export default withRouter(App);
 ```
-这样，App下的所有组件,都能获取到通过this.props获取到*history,location,match* 三个路由参数
+这样，App下的所有组件,都能获取到通过this.props获取到==history,location,match== 三个路由参数
 
 ##### 1)、路由的3中渲染方式:
 
@@ -1066,11 +1067,14 @@ import {  Switch, Route, Link } from "react-router-dom";
 //<Route render>   这种方式不会将组件卸载，而是直接在线更新渲染。
 //props中含有history,location,match 3个属性。 render方式可以充当路由钩子，可以在满足条件时渲染组件。(router V4中取消了路由钩子)
 <Route path="/user" render={props => (
-   this.state.auth ? 
-      (<Component {...props}/>):
-      (<Redirect to={
-        { pathname: '/login', state:{from: props.location }}
-     }/>)
+    this.state.auth ? (
+        <Component {...props}/>
+    ) : (
+        <Redirect to={{
+            pathname: '/login',
+            state: { from: props.location }
+        }}/>
+    )
 )}/>
 ```
 
@@ -1131,7 +1135,7 @@ JS方式      this.props.history.push({pathname:"/form",search:"?day=Friday"});
 
 
 
-### 五、react中常见问题
+### 六、react中常见问题
 ##### 1)、npm run eject报错
 ```
 This git repository has untracked files or uncommitted changes:
