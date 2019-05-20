@@ -72,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/person/static/markdown/react-demo-component.md"
   },
   {
-    "revision": "a3bdacd002d1c34ef438c54a52a95edc",
+    "revision": "1e1825607413c94fdbed9812486f4bc2",
     "url": "/person/static/markdown/react-simple-tutorial.md"
   },
   {
