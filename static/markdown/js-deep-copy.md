@@ -3,6 +3,7 @@
 
 ## 一、赋值: 
 指向同一个地址，不拷贝。
+
 ![image](https://image-static.segmentfault.com/266/319/2663191658-5be8fe6ddb083_articlex)
 
 ```
