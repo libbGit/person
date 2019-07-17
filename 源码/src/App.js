@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Layout, Menu, Affix, BackTop } from "antd";
-
+import { Layout, Menu, Affix, BackTop, Button } from "antd";
 import { Switch, Route, Link, Redirect, withRouter } from "react-router-dom";
+
+// import overlayscrollbars from "overlayscrollbars";
 
 import "@/assets/css/app.scss";
 import Article from "@/features/article/Article";
@@ -14,6 +15,8 @@ class App extends Component {
     this.state = {
       loggedIn: true
     };
+
+    this.deferredPrompt = null;
   }
   render() {
     const { Header, Content, Footer } = Layout;
@@ -47,12 +50,50 @@ class App extends Component {
         <Content className="app-main">
           <RouteView loggedIn={this.state.loggedIn} />
         </Content>
-        <Footer className="app-footer">My blog ©2018 Created by libb</Footer>
+        <Footer className="app-footer">
+          My blog ©2018 Created by libb
+          <Button type="link" size="small" onClick={this.handleAddToHomescreen}>
+            Add To Homescreen
+          </Button>
+        </Footer>
       </Layout>
     );
   }
 
-  componentDidMount() {}
+  handleAddToHomescreen = () => {
+    console.log("this", this);
+    if (this.deferredPrompt) {
+      // The user has had a postive interaction with our app and Chrome
+      // has tried to prompt previously, so let's show the prompt.
+      this.deferredPrompt.prompt();
+
+      // Follow what the user has done with the prompt.
+      this.deferredPrompt.userChoice.then(function(choiceResult) {
+        console.log(choiceResult.outcome);
+
+        if (choiceResult.outcome == "dismissed") {
+          console.log("User cancelled home screen install");
+        } else {
+          console.log("User added to home screen");
+        }
+
+        // We no longer need the prompt.  Clear it up.
+        this.deferredPrompt = null;
+      });
+    }
+  };
+
+  componentDidMount() {
+    // window.addEventListener("beforeinstallprompt", e => {
+    //   console.log("beforeinstallprompt Event fired");
+    //   //e.preventDefault();   //I even try with this uncommented no luck so far
+    //   this.deferredPrompt = e;
+    //   return false;
+    // });
+    // window.addEventListener("appinstalled", evt => {
+    //   console.log("appinstalled");
+    // });
+  }
 }
 
 let RouteView = props => {

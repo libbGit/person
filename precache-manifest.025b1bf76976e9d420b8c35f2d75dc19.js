@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5ffc35b51f33212e2c4660922bf9b94d",
+    "revision": "eab6eba95dfca16d04ecb921996cc6d6",
     "url": "/person/index.html"
   },
   {
-    "revision": "9525c61816a85560ddec",
-    "url": "/person/static/css/main.ce146343.chunk.css"
+    "revision": "a20ec672dbd7b4d10fa6",
+    "url": "/person/static/css/main.32200145.chunk.css"
   },
   {
-    "revision": "d057bbfb1a0e4858ecb0",
-    "url": "/person/static/css/vendors~main.742b6d91.chunk.css"
+    "revision": "b5fc89dce9ac1c26668c",
+    "url": "/person/static/css/vendors~main.e09a7e14.chunk.css"
   },
   {
-    "revision": "9525c61816a85560ddec",
-    "url": "/person/static/js/main.abb9b99f.chunk.js"
+    "revision": "a20ec672dbd7b4d10fa6",
+    "url": "/person/static/js/main.ca82e330.chunk.js"
   },
   {
     "revision": "eeec2df47e524a05c2c2",
     "url": "/person/static/js/runtime~main.410deb47.js"
   },
   {
-    "revision": "d057bbfb1a0e4858ecb0",
-    "url": "/person/static/js/vendors~main.83eecde3.chunk.js"
+    "revision": "b5fc89dce9ac1c26668c",
+    "url": "/person/static/js/vendors~main.876900e4.chunk.js"
   },
   {
     "revision": "25fd76ca3c373b39d3b6b5835a20ef7d",
@@ -48,6 +48,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/person/static/markdown/flex.md"
   },
   {
+    "revision": "8b4fa868b0a4bb80fae41dc784d91551",
+    "url": "/person/static/markdown/js-axios.md"
+  },
+  {
     "revision": "42b45768a2f0c8e710a93ce1dc122589",
     "url": "/person/static/markdown/js-deep-copy.md"
   },
@@ -60,12 +64,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/person/static/markdown/js-issue.md"
   },
   {
-    "revision": "7c3218c7724c0bb85f5b1fd650c351d6",
-    "url": "/person/static/markdown/pwa-listener.md"
+    "revision": "c547f4a736389484477bf9b7262824c0",
+    "url": "/person/static/markdown/js-static-resource.md"
   },
   {
     "revision": "0c02fc8207bf987606e86ddb39102cda",
     "url": "/person/static/markdown/pwa-register.md"
+  },
+  {
+    "revision": "5a623469ec73c98b06803e8307de8035",
+    "url": "/person/static/markdown/pwa-simple-tutorial.md"
   },
   {
     "revision": "6d807e9af93d883c8b99758cd75f70e3",

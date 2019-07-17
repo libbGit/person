@@ -73,3 +73,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 每次yarn add 后要修改，因为react-scripts包会变成原始的
 所以请使用 react-script===webpack.config.修改.js merge到原来的js
+
+
+本项目是使用mobx搭建

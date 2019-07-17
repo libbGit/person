@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 
 import { Switch, Route, Link } from "react-router-dom";
 
-import AnchorArea from "./AnchorArea";
-
 import "./article.scss";
 import CssScss from "@/features/article/blog/css/CssScss";
 import CssFlex from "@/features/article/blog/css/CssFlex";
@@ -14,16 +12,22 @@ import CssBem from "@/features/article/blog/css/CssBem";
 import CssBase from "@/features/article/blog/css/CssBase";
 import CssBfc from "@/features/article/blog/css/CssBfc";
 import CssPercent from "@/features/article/blog/css/CssPercent";
+
 import JsEs6Async from "@/features/article/blog/js/JsEs6Async";
 import JsIssue from "@/features/article/blog/js/JsIssue";
 import JsDeepCopy from "@/features/article/blog/js/JsDeepCopy";
+import JsAxiosTutorial from "@/features/article/blog/js/JsAxiosTutorial";
+import JsStaticResource from "@/features/article/blog/js/JsStaticResource";
+
 import VueVuex from "@/features/article/blog/vue/VueVuex";
 import VueDemoComponent from "@/features/article/blog/vue/VueDemoComponent";
 import VueAssetsUrl from "@/features/article/blog/vue/VueAssetsUrl";
+
 import ReactSimpleTutorial from "@/features/article/blog/react/ReactSimpleTutorial";
 import ReactDemoComponent from "@/features/article/blog/react/ReactDemoComponent";
+
 import PwaRegister from "@/features/article/blog/pwa/PwaRegister";
-import PwaListener from "@/features/article/blog/pwa/PwaListener";
+import PwaSimpleTutorial from "@/features/article/blog/pwa/PwaSimpleTutorial";
 
 import carouselConfig from "@/assets/images/carousel/config.json";
 
@@ -131,7 +135,12 @@ class Article extends Component {
                 <Menu.Item key="js-deepcopy">
                   <Link to={`${this.props.match.path}/js-deepcopy`}>深拷贝与浅拷贝</Link>
                 </Menu.Item>
-                <Menu.Item key="js-nginx-deploy">搭建测试服务器(nginx)</Menu.Item>
+                <Menu.Item key="js-axios">
+                  <Link to={`${this.props.match.path}/js-axios`}>axios教程</Link>
+                </Menu.Item>
+                <Menu.Item key="js-static-resource">
+                  <Link to={`${this.props.match.path}/js-static-resource`}>webpack中处理静态资源</Link>
+                </Menu.Item>
               </SubMenu>
               <SubMenu
                 key="vue"
@@ -148,7 +157,7 @@ class Article extends Component {
                   <Link to={`${this.props.match.path}/vue-demo-component`}>vue单组件结构</Link>
                 </Menu.Item>
                 <Menu.Item key="vue-assets-url">
-                  <Link to={`${this.props.match.path}/vue-assets-url`}>vue中处理静态资源</Link>
+                  <Link to={`${this.props.match.path}/vue-assets-url`}>vue-loader处理静态资源</Link>
                 </Menu.Item>
               </SubMenu>
               <SubMenu
@@ -177,8 +186,8 @@ class Article extends Component {
                 <Menu.Item key="pwa-register">
                   <Link to={`${this.props.match.path}/pwa-register`}>PWA注册文件</Link>
                 </Menu.Item>
-                <Menu.Item key="pwa-listener">
-                  <Link to={`${this.props.match.path}/pwa-listener`}>PWA监听文件</Link>
+                <Menu.Item key="pwa-simple-tutorial">
+                  <Link to={`${this.props.match.path}/pwa-simple-tutorial`}>PWA简易教程</Link>
                 </Menu.Item>
               </SubMenu>
             </Menu>
@@ -187,8 +196,6 @@ class Article extends Component {
             <RouteView route={this.props.match.path} />
           </Content>
         </Layout>
-
-        {/* <AnchorArea /> */}
       </div>
     );
   }
@@ -210,13 +217,16 @@ let RouteView = props => {
       <Route path={`${props.route}/js-es6-async`} component={JsEs6Async} />
       <Route path={`${props.route}/js-issue`} component={JsIssue} />
       <Route path={`${props.route}/js-deepcopy`} component={JsDeepCopy} />
+      <Route path={`${props.route}/js-axios`} component={JsAxiosTutorial} />
+      <Route path={`${props.route}/js-static-resource`} component={JsStaticResource} />
+
       <Route path={`${props.route}/vue-vuex`} component={VueVuex} />
       <Route path={`${props.route}/vue-demo-component`} component={VueDemoComponent} />
       <Route path={`${props.route}/vue-assets-url`} component={VueAssetsUrl} />
       <Route path={`${props.route}/react-simple-tutorial`} component={ReactSimpleTutorial} />
       <Route path={`${props.route}/react-demo-component`} component={ReactDemoComponent} />
       <Route path={`${props.route}/pwa-register`} component={PwaRegister} />
-      <Route path={`${props.route}/pwa-listener`} component={PwaListener} />
+      <Route path={`${props.route}/pwa-simple-tutorial`} component={PwaSimpleTutorial} />
     </Switch>
   );
 };
