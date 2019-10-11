@@ -7,7 +7,6 @@ import App from "@/App";
 import * as serviceWorker from "@/serviceWorker";
 
 import { BrowserRouter, HashRouter } from "react-router-dom";
-import { Scrollbars } from "react-custom-scrollbars";
 
 import { Provider } from "mobx-react";
 import store from "./store";
@@ -15,15 +14,15 @@ import store from "./store";
 ReactDOM.render(
   <Provider store={store}>
     <HashRouter>
-      <Scrollbars
+      {/* <Scrollbars
         style={{ width: "100vw", height: "100vh" }}
         autoHide
         autoHideTimeout={1000}
         autoHideDuration={200}
         universal
-      >
-        <App />
-      </Scrollbars>
+      > */}
+      <App />
+      {/* </Scrollbars> */}
     </HashRouter>
   </Provider>,
   document.getElementById("root")

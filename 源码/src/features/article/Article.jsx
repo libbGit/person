@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import { Switch, Route, Link } from "react-router-dom";
 
+
 import "./article.scss";
 import CssScss from "@/features/article/blog/css/CssScss";
 import CssFlex from "@/features/article/blog/css/CssFlex";

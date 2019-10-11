@@ -1,6 +1,9 @@
 ### 1、定位
 - static     默认定位，属性top，left，z-index等无效
-- absolute   绝对定位，脱离常规流，后面的元素跟上来。top、left参考离此元素最近的具有absolute、relative或fixed定位的父类，如果父类都没有定位，则参考body
+- absolute   绝对定位，脱离常规流，后面的元素跟上来。top、left参考元素满足下面其一即可:
+     - 1、离当前元素最近的具有absolute、relative或fixed定位的父类，如果没有，则参考body
+     - 2、离当前元素最近的具有transform或者perspective不为none的父元素，如果没有，则参考body
+     - 3、离当前元素最近的具有filter不为none的父元素，如果没有，则参考body 
 - fixed	      固定定位，脱离常规流，后面的元素跟上来。top、left参考body，并且固定在屏幕，不随滚动条的滚动而上下移动。
 - relative   相对定位，不脱离常规流。top、left参考本元素。
 
@@ -124,8 +127,9 @@ inline-block的元素之间会受空白区域的影响，元素之间差不多�
 
 ### 9、css中的内置变量和函数：
 - currentColor  当前的标签所继承的==文字颜色==
-- inherit  防止浏览器使用默认的样式，而显式的定义为父元素的样式。
+- inherit  显式的继承父元素的样式（只针对可继承样式，如color，而border不行）。
 - initial  初始化为浏览器默认的样式
+- unset  如果样式可继承，等同于inherit，如果不可继承，等同于initial
 
 attr()
 
@@ -148,6 +152,10 @@ calc()
 width: calc(100% - 29px); //减号前后，必须留一个空格
 width: calc(100vw - 29px);
 ```
+
+还有如下内置函数:
+rgba(), hsl(), and hsla()
+
 
 ### 10、boder， box-shadow，outline
 这三个中只有boder影响布局，其他都不会影响布局。

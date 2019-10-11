@@ -1,14 +1,21 @@
+$header-height: 65px;
+$footer-height: 65px;
 #root {
   min-width: 1200px;
 }
 
 .app-header {
-  height: 65px;
+  // position: fixed;
+  height: $header-height;
+  // width: 100%;
 }
 
+.app-layout {
+  height: calc(100vh - #{$header-height});
+  overflow: auto;
+}
 .app-main {
-  min-height: calc(100vh - 65px - 65px);
-
+  min-height: initial;
   @media screen and (max-width: 1920px) {
     padding: 0 350px;
   }
@@ -21,6 +28,6 @@
 }
 
 .app-footer {
-  height: 65px;
+  height: $footer-height;
   text-align: center;
 }

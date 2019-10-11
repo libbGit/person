@@ -91,13 +91,13 @@ export default {
       provide(){
           return {injectName:"hello"}
       },
-      则父组件的任何子组件、孙子组件，都可以接受到injectName变量值。
+      则父组件的任何直接子组件，都可以接受到injectName变量值。
       
       但是非响应式，后期的变化，子组件不会监听到
   */
   inject: ['injectName'],
   
-  /******************** 页面数据的来源有三处： data， props，computed(包括state)，依赖注入 *******************/
+  /******************** 页面数据的来源有三处： data， props，computed(包括state)，inject *******************/
   
   
   /* 
