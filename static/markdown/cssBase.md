@@ -4,22 +4,19 @@
      - 1、离当前元素最近的具有absolute、relative或fixed定位的父类，如果没有，则参考body
      - 2、离当前元素最近的具有transform或者perspective不为none的父元素，如果没有，则参考body
      - 3、离当前元素最近的具有filter不为none的父元素，如果没有，则参考body 
+     - 4、离当前元素最近的具有contain值为paint,strict,content。如果没有，则参考body 
 - fixed	      固定定位，脱离常规流，后面的元素跟上来。top、left参考body，并且固定在屏幕，不随滚动条的滚动而上下移动。
 - relative   相对定位，不脱离常规流。top、left参考本元素。
 
-z-index适用于已经定位的元素。
-在同一个元素内部的堆叠顺序如下
 
-```
-负z-index < background<  border < 块级元素< 浮动元素 < 内联元素 < 定位元素 < 正z-index 
-```
-即 正z-index 的元素堆叠顺序最高。
+
 
 
 **堆叠上下文形成条件:**（满足任一即可）
 
 - 根元素 (HTML)
 - z-index 值不为 "auto"的 absolute/relative定位
+- position: fixed | sticky
 - 一个 z-index 值不为 "auto"的 flex 项目 (flex item)，即：父元素 display: flex|inline-flex的元素
 - opacity 属性值小于 1 的元素
 - transform 属性值不为 "none"的元素
@@ -27,14 +24,23 @@ z-index适用于已经定位的元素。
 - filter值不为“none”的元素
 - perspective值不为“none”的元素
 - isolation 属性被设置为 "isolate"的元素
-- position: fixed
-- 在 will-change 中指定了任意 CSS 属性，即便你没有直接指定这些属性的值
-- -webkit-overflow-scrolling 属性被设置 "touch"的元素
+- clip-path值不为“none”的元素
+- mask / mask-image / mask-border不为“none”的元素
+- contain属性值为“layout”，“paint”，或者综合值比如“strict”，“content”
+
+
+在同一个元素内部的堆叠顺序如下
+
+```
+负z-index < background<  border < 正常流元素< float元素 < transform元素 < 定位元素(z-index不指定) < opacity元素 < contain元素 < filter元素 < perspective元素 < 正z-index(正z-index时，当前元素可以是定位，也可以是flex的子元素)
+```
+
+即 正z-index 的元素堆叠顺序最高。
 
 结论:
 
 - **1、在同一个堆叠上下文中，z-index大的比z-index小的堆叠层级更高**
-- **2、在不同堆叠上下文中，z-index的大小不会影响到元素的堆叠顺序，此时的堆叠顺序与堆叠上下文所属元素的堆叠顺序有关，与子元素无关。**
+- **2、在不同堆叠上下文中，z-index的大小不会影响到子元素的堆叠顺序，此时的堆叠顺序与堆叠上下文所属元素的堆叠顺序有关，与子元素无关。**
 - **3、堆叠上下文中，里面元素的负z-index > 堆叠上下文所属元素border**
 
 ![image](https://raw.githubusercontent.com/libbGit/static-file/master/image/position-context.png)

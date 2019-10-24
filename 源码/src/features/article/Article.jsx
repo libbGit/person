@@ -77,7 +77,7 @@ class Article extends Component {
           </div>
         </div>
         <Layout className="article-layout">
-          <Sider width={250} style={{ background: "#fff" }}>
+          <Sider width={250} className="article-slider">
             <Menu mode="inline" defaultSelectedKeys={["1"]} defaultOpenKeys={["sub1"]} style={{ height: "100%" }}>
               <SubMenu
                 key="css"

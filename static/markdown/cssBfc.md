@@ -17,16 +17,18 @@
 3. 每个子元素的左外边缘（margin-left)， 与当前 BFC 元素的左边（contain box left）相接触。即使存在浮动也是如此。除非产生新的 BFC 元素。
 4. BFC 的盒子不会与 float 盒子重叠。
 5. BFC 就是页面上的一个隔离的独立盒子，盒子里面的子元素不会影响到外面的元素。反之也如此。
-6. 计算 BFC 的高度时，浮动元素也参与计算。
+6. 计算 BFC 的高度时，浮动元素也参与计算(浮动定位和清除浮动时只会应用于同一个BFC内的元素。)
 
 怎样形成一个 BFC？
 满足其一的元素，即可生成一个 BFC
 
-- 根元素或其它包含它的元素
-- 浮动的元素 (元素的 float 不是 none)
-- 绝对定位的元素 (元素具有 position 为 absolute 或 fixed)
-- 非块级元素具有 display: inline-block，table-cell, table-caption, flex, inline-flex
-- 块级元素具有 overflow ，且值不是 visible
+- 根元素(<html>)
+- 浮动元素（元素的 float 不是 none）
+- 绝对定位元素（元素的 position 为 absolute 或 fixed）
+- 非块级元素具有 display:flow-root（无任何副作用,但兼容性不好）,inline-block，table-cell（表格中）, table-caption（表格中）
+- 弹性元素（display为 flex 或 inline-flex元素的直接子元素,如果当前元素为弹性元素的子元素，则会形成BFC，而不是它是弹性元素才会形成BFC）
+- overflow 值不为 visible 的块元素
+- contain 值为 layout、content或 paint 的元素
 
 注意
 其中“非块级元素具有 display: inline-block”，其实是说自身还是行内元素，排列方式和其他行元素一样都在一行排放。但是却具有了 BFC 的特性，如清除浮动等。

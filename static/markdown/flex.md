@@ -17,6 +17,9 @@
 
 ==注意==:**默认情况下子项目在“纵轴”方向的高度是自动伸展铺满的，除非给子项目指定具体的height值。 可通过align-items改变默认值**
 
+设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。
+而且即使span元素，也在flex布局下，可以设置height，margin-top等属性
+
 
 ## 2、flex容器的属性
 - flex-direction    【决定主轴的方向（即项目的排列方向）】
