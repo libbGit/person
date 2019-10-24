@@ -67,6 +67,12 @@
     .article-slider {
       background-color: #fff;
       overflow: auto;
+      border-right: 1px solid #d8d8d8;
+
+      ul{
+        border: 0;
+        overflow-x: hidden;
+      }
     }
 
     .article-content {
