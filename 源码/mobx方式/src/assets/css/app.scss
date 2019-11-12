@@ -1,0 +1,28 @@
+$header-height: 65px;
+$footer-height: 65px;
+#root {
+  min-width: 1200px;
+}
+
+.app-header {
+  // position: fixed;
+  height: $header-height;
+  // width: 100%;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - #{$header-height});
+  // overflow: auto;
+}
+.app-main {
+  flex: 1;
+  margin: auto;
+  width: 80%;
+}
+
+.app-footer {
+  height: $footer-height;
+  text-align: center;
+}

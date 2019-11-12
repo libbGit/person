@@ -641,8 +641,237 @@ import  "animate.css"
 由于react-transition-group定义了动画持续时间timeout，而aniamte.css也有时间，所以两者必须要设置一致。否则一个过渡完了，另一个时间还没到。
 
 
+#### 4、Hook
+在正常情况下class组件中，可以有state，setState(), 以及生命周期 componentDidMount  componentDidUpdate componentWillUnmount
 
-#### 5、CSS in JS
+而函数式组件中，却不会有，那么为了解决这个问题，就给函数式组件中增加了hook，
+所以hook作用是:
+- Hook 使你在无需修改组件结构的情况下复用状态逻辑。
+- Hook 将组件中相互关联的部分拆分成更小的函数（比如设置订阅或请求数据）
+- Hook 使你在非 class 的情况下可以使用更多的 React 特性。
+- Hook 和现有代码可以同时工作，你可以渐进式地使用他们
+- Hook 避免了使用 方法和变量时的this指向
+
+
+
+##### 1)、state hook
+用来在函数式组件中定义 state和 setState
+
+```
+//第一步 引入 useState
+import React, { useState } from 'react';
+
+function Example() {
+  //第二步 设置 state，和更新state的方法，并给初始值。两个名字间没有关系。可以随便起。不过必须放到 函数式组件 的最外层，不能放在其他地方
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <!--在render 方法中使用 state或使用更新state的方法-->
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+可以多次定义state hook，他们之间互不干涉。
+
+```
+function ExampleWithManyStates() {
+  // 声明多个 state 变量！
+  const [age, setAge] = useState(42);
+  const [fruit, setFruit] = useState('banana');
+  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
+  // ...
+}
+```
+
+##### 2)、Effect hook
+Effect Hook 等同于 componentDidMount、componentDidUpdate 和 componentWillUnmount 的合集。
+
+比如只要组件创建完，componentDidMount会执行。那么 Effect Hook也是这样。
+比如dom重新渲染了，componentDidUpdate会执行。那么 Effect Hook也是这样。
+比如组件销毁了，componentWillUnmount会执行。那么 Effect Hook也是这样。
+
+
+```
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+
+  //必须放到 函数式组件 的最外层，不能放在其他地方
+  useEffect(() => {
+    //只要创建完组件，就会执行一次，如果下面setCount导致组件重新渲染，那么它又会执行一次。
+    
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+同样Effect hook可以定义多个。 这样的好处时把相同的逻辑放到同一个effect中处理。
+
+```
+function ExampleWithManyEffect() {
+  // 声明多个 effect 变量！
+  useEffect(() => {
+    //
+  });
+  
+  useEffect(() => {
+    //
+  });
+  
+  useEffect(() => {
+    //
+  });
+  // ...
+}
+```
+Effect hook 可以有return，此时会执行return，在执行里面。
+
+```
+function ExampleWithEffect() {
+  useEffect(() => {
+    console.log("after");
+    
+    return ()=>{
+        console.log("before")
+    }
+  });
+}
+//输出before  after
+```
+此种场景是 订阅和取消订阅的绝佳场景。
+
+```
+function ExampleWithEffect() {
+  useEffect(() => {
+    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+    return () => {
+      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+    };
+  });
+}
+//输出before  after
+```
+
+Effect hook可以接收第二参数。用来限定只有这个参数改变后，才执行 Effect hook，而不必在任何的state或prop改变，导致组件重新渲染时，就执行effect，这样太频繁了。
+
+```
+function ExampleWithEffect() {
+  useEffect(() => {
+     //进行其他操作
+  }, [count]); // 仅在 count 更改时更新
+}
+```
+
+或者下面
+
+```
+useEffect(() => {
+  function handleStatusChange(status) {
+    setIsOnline(status.isOnline);
+  }
+
+  ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+  return () => {
+    ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+  };
+}, [props.friend.id]); // 仅在 props.friend.id 发生变化时，重新订阅
+```
+
+和下面的class组件是一样的效果
+
+```
+componentDidUpdate(prevProps, prevState) { 
+  if (prevState.count !== this.state.count) {
+    //进行其他操作
+  }
+}
+```
+
+如果极限点，可以给第二个参数[],那么就只会在组件挂载和卸载时执行effect hook
+
+```
+function ExampleWithEffect() {
+  useEffect(() => {
+  //进行其他操作
+}, []); // 仅在组件挂载和卸载时执行
+}
+```
+
+
+自定义hook。为了区别自定义的 hook，给这个函数加上  use（一种约定）
+
+```
+import React, { useState, useEffect } from 'react';
+
+function useFriendStatus(friendID) {
+  const [isOnline, setIsOnline] = useState(null);
+
+  function handleStatusChange(status) {
+    setIsOnline(status.isOnline);
+  }
+
+  useEffect(() => {
+    ChatAPI.subscribeToFriendStatus(friendID, handleStatusChange);
+    return () => {
+      ChatAPI.unsubscribeFromFriendStatus(friendID, handleStatusChange);
+    };
+  });
+
+  return isOnline;
+}
+```
+这样就构造了一个其他组件中公用的 组件，当传入的friendID 发生改变时将会触发componentDidUpdate，也就是effect hook，在hook中，执行订阅。订阅更新 isOnline值，然后 render中(return)的 isOnline会重新计算，并返回 给其他组件。
+
+
+```
+function FriendStatus(props) {
+  //在FriendStatus组件中使用自定义 hook
+  const isOnline = useFriendStatus(props.friend.id);
+
+  if (isOnline === null) {
+    return 'Loading...';
+  }
+  return isOnline ? 'Online' : 'Offline';
+}
+```
+
+自定义hook中的state并不是被多个组件公用的。而是互相隔离的。
+
+
+
+##### 3)、其他 hook
+- useContext    const value = useContext(MyContext); 离自己最近的 < MyContext.Provider >的value值
+- useReducer
+- useCallback   所依赖的变量改变时，返回 对应的新缓存函数   vue  computed，如果不加，相当于 vue  method，dom改变，不管是否依赖，都会执行。
+- useMemo       所依赖的变量改变时，返回 对应的新缓存变量 相当于 vue  computed，如果不加，相当于 vue  method，dom改变，不管是否依赖，都会执行。
+- useRef
+- useImperativeHandle
+- useLayoutEffect
+- useDebugValue
+
+useCallback，useMemo和useEffect都是当页面重新渲染时进行执行。
+不同的是useCallback，useMemo会在dom所依赖的变量改变时重新执行。如果变量不变，则不重新执行。
+
+而useEffect只是用来执行与dom无关的一些操作。比如 订阅，fetch请求等
+
+
+
+#### 6、CSS in JS
 在react中，如果引入一个.css文件，那么这个文件中的样式，不仅会作用于当前组件，还会作用于当前组件的所有子组件。
 
 为了解决这种非组件专属的css，引入下面的几种方式:
@@ -1096,6 +1325,7 @@ import {  Switch, Route, Link } from "react-router-dom";
 
 <Route exact path="/" component={Home} />
 <Route path="/form" component={Form} />
+//在父路由中坚决不要使用exact
 ```
 
 ```
