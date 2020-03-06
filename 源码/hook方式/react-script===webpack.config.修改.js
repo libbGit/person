@@ -63,7 +63,7 @@ module.exports = function(webpackEnv) {
   // It requires a trailing slash, or the file assets will get an incorrect path.
   // In development, we always serve from the root. This makes config easier.
   const publicPath = isEnvProduction
-    ? '/person/'
+    ? '/person/'     //需要修改的 libb
     : isEnvDevelopment && '/';
   // Some apps do not use client-side routing with pushState.
   // For these, "homepage" can be set to "." to enable relative asset paths.
@@ -255,7 +255,7 @@ module.exports = function(webpackEnv) {
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
         chunks: 'all',
-        name: true,
+        name: true,  //编译后的文件是否是name,而不是数字 libb
       },
       // Keep the runtime chunk separated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
@@ -282,7 +282,7 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
-        "@": path.resolve(__dirname, "../../../src")
+        "@": path.resolve(__dirname, "../../../src"),  //别名 libb
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
